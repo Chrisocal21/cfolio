@@ -1,60 +1,88 @@
-# My Portfolio
+# My Portfolio (Next.js + TypeScript)
 
-A clean, modern portfolio landing page ready to showcase your work.
+A modern portfolio site built with Next.js 14, TypeScript, and React - showcasing photography and tech projects.
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-This is a simple static website that can be deployed immediately to GitHub Pages or Vercel.
+### Install Dependencies
+```bash
+npm install
+```
+
+### Run Development Server
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view your site.
+
+### Build for Production
+```bash
+npm run build
+npm start
+```
+
+## 📁 Project Structure
+
+```
+cfolio/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx          # Root layout with metadata
+│   │   ├── page.tsx             # Home page
+│   │   ├── globals.css          # Global styles
+│   │   └── page.module.css      # Page-specific styles
+│   └── components/
+│       ├── Navigation.tsx       # Nav component
+│       ├── Hero.tsx             # Hero section
+│       ├── About.tsx            # About section
+│       ├── Work.tsx             # Projects section
+│       ├── Contact.tsx          # Contact section
+│       ├── Footer.tsx           # Footer component
+│       └── *.module.css         # Component styles
+├── public/                      # Static assets
+├── package.json
+├── tsconfig.json
+├── next.config.js
+└── README.md
+```
 
 ## 📝 Customization Guide
 
 ### Change the Site Name
-The placeholder name `MY_PORTFOLIO` appears in two places:
-
-1. **index.html** - Line 7 (page title) and Line 15 (logo)
-2. **index.html** - Line 53 (footer)
-
-Simply search for `MY_PORTFOLIO` and replace with your chosen name.
+The placeholder name `MY_PORTFOLIO` appears in:
+- `src/components/Navigation.tsx` (line 7)
+- `src/components/Footer.tsx` (line 7)
+- `src/app/layout.tsx` (line 6-7) - Update metadata title and description
 
 ### Personalize Content
-- **Your Name**: Line 22 in `index.html` - Replace `[Your Name]`
-- **Tagline**: Line 23 in `index.html` - Update the subtitle
-- **About Section**: Lines 30-32 - Add your bio and skills
-- **Contact Links**: Lines 43-47 - Add your actual social media and email links
+- **Your Name**: Edit `src/components/Hero.tsx` - Replace `[Your Name]`
+- **Tagline**: Edit the subtitle in `Hero.tsx`
+- **About Section**: Update content in `src/components/About.tsx`
+- **Contact Links**: Update social links in `src/components/Contact.tsx`
 
 ### Customize Colors
-Edit the color variables in `styles.css` (lines 10-16):
+Edit CSS variables in `src/app/globals.css` (lines 6-12):
 ```css
---primary-color: #6366f1;
---secondary-color: #8b5cf6;
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #8b5cf6;
+  --text-color: #1f2937;
+  --text-light: #6b7280;
+  --bg-color: #ffffff;
+  --bg-secondary: #f9fafb;
+  --border-color: #e5e7eb;
+}
 ```
 
-## 🌐 Deploy to GitHub Pages
-
-1. Create a new repository on GitHub
-2. Push your code:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/your-repo.git
-   git push -u origin main
-   ```
-3. Go to repository Settings → Pages
-4. Set Source to "Deploy from a branch"
-5. Select `main` branch and `/ (root)` folder
-6. Click Save
-
-Your site will be live at: `https://yourusername.github.io/your-repo/`
-
-## ⚡ Deploy to Vercel
+## 🌐 Deploy to Vercel
 
 ### Option 1: Import from GitHub
-1. Go to [vercel.com](https://vercel.com)
-2. Click "New Project"
-3. Import your GitHub repository
-4. Click "Deploy"
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Click "New Project"
+4. Import your repository
+5. Vercel auto-detects Next.js and deploys!
 
 ### Option 2: Using Vercel CLI
 ```bash
@@ -62,31 +90,46 @@ npm i -g vercel
 vercel
 ```
 
-Your site will be live at a Vercel URL instantly!
+Your site will be live instantly with automatic HTTPS and global CDN! ⚡
 
-## 📁 Project Structure
-```
-cfolio/
-├── index.html      # Main HTML file
-├── styles.css      # All styling
-├── README.md       # This file
-└── .gitignore      # Git ignore rules
-```
+## 🛠️ Tech Stack
 
-## 🛠️ Built With
-- Pure HTML5
-- Pure CSS3
-- No frameworks or dependencies
-- Fully responsive design
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: CSS Modules (scoped styling)
+- **React**: 18.3
+- **Deployment**: Vercel (recommended)
 
-## 📱 Features
-- Modern, clean design
-- Fully responsive (mobile, tablet, desktop)
-- Smooth hover effects
-- Easy to customize
-- Zero dependencies
-- Fast loading
+## ✨ Features
+
+- ✅ Modern Next.js 14 with App Router
+- ✅ TypeScript for type safety
+- ✅ CSS Modules for scoped styling
+- ✅ Component-based architecture
+- ✅ Fully responsive design
+- ✅ SEO-ready with metadata
+- ✅ Zero runtime JavaScript for static content
+- ✅ Optimized for performance
+- ✅ Easy to extend and customize
+
+## 🔄 Migration from HTML
+
+The site has been converted from plain HTML to:
+- React components (TSX)
+- TypeScript for type safety
+- CSS Modules for component-scoped styles
+- Next.js App Router for modern React patterns
+- Automatic code splitting and optimization
+
+## 📚 Next Steps
+
+Check out `PORTFOLIO-BUILD-GUIDE.md` for a comprehensive checklist on adding:
+- 📷 Photo galleries
+- 🌐 Project showcases
+- 📱 Mobile app demos
+- 💻 Code snippets
+- And much more!
 
 ---
 
-Ready to deploy! 🎉
+Ready to build an amazing portfolio! 🎉

@@ -1,0 +1,22 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.container section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .container section {
+    padding: 3rem 1rem;
+  }
+}
