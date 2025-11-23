@@ -10,25 +10,64 @@ Quick reference for all available npm scripts and automation commands.
 ```bash
 npm run dev
 ```
-Starts Next.js development server at http://localhost:3000 with hot reload.
+**What it does:** Starts Next.js development server at http://localhost:3000 with hot reload.
+
+**Details:** 
+- Enables Fast Refresh for instant updates without losing component state
+- Shows detailed error messages and stack traces in the browser
+- Includes source maps for easier debugging
+- Watches for file changes and automatically recompiles
+- Runs in development mode (slower but with helpful debug info)
+
+**When to use:** During active development when you want to see changes instantly.
 
 ### Build for Production
 ```bash
 npm run build
 ```
-Creates optimized production build in `.next/` directory.
+**What it does:** Creates optimized production build in `.next/` directory.
+
+**Details:**
+- Minifies JavaScript and CSS for smaller file sizes
+- Optimizes images and static assets
+- Generates static HTML pages where possible
+- Creates optimized bundles with code splitting
+- Runs TypeScript type checking
+- Validates all pages compile successfully
+- Typical build time: 10-30 seconds
+
+**When to use:** Before deploying to production or testing production performance locally.
 
 ### Start Production Server
 ```bash
 npm start
 ```
-Runs the production build locally (must run `npm run build` first).
+**What it does:** Runs the production build locally (must run `npm run build` first).
+
+**Details:**
+- Serves the optimized production build from `.next/` directory
+- Uses production-level caching and optimizations
+- No hot reload or Fast Refresh (changes require rebuild)
+- Faster performance than dev mode
+- Mimics how your site will run on Vercel
+
+**When to use:** Testing the production build locally before deploying, or running final QA checks.
 
 ### Run Linter
 ```bash
 npm run lint
 ```
-Checks code for linting errors using ESLint.
+**What it does:** Checks code for linting errors using ESLint.
+
+**Details:**
+- Scans all TypeScript and JavaScript files for code quality issues
+- Checks for unused variables, imports, and potential bugs
+- Enforces Next.js best practices and React hooks rules
+- Reports accessibility issues in JSX
+- Can auto-fix some issues with `--fix` flag
+- Runs automatically during `npm run build`
+
+**When to use:** Before committing code or when you see warnings in your editor.
 
 ---
 
@@ -38,7 +77,17 @@ Checks code for linting errors using ESLint.
 ```bash
 npm run progress
 ```
-Analyzes `PORTFOLIO-BUILD-GUIDE.md` and updates `PROGRESS.md` with completion percentage.
+**What it does:** Analyzes `PORTFOLIO-BUILD-GUIDE.md` and updates `PROGRESS.md` with completion percentage.
+
+**Details:**
+- Scans the build guide for all checkbox items `[ ]` and `[x]`
+- Calculates completion percentage (completed/total)
+- Extracts recently completed items marked with ✅
+- Generates a formatted progress report
+- Updates `PROGRESS.md` with current stats and date
+- Takes ~1 second to run
+
+**When to use:** After completing tasks in the build guide, or to check your current progress.
 
 ### Run Automation Suite
 ```bash
@@ -51,55 +100,125 @@ npm run automate [command]
 ```bash
 npm run automate progress
 ```
-Same as `npm run progress` - updates progress tracker.
+**What it does:** Same as `npm run progress` - updates progress tracker.
+
+**Details:**
+- Identical functionality to `npm run progress`
+- Part of the larger automation suite
+- Can be chained with other automation commands
+- Outputs completion stats to console
+
+**When to use:** When running multiple automation tasks together.
 
 #### 2. Auto-Commit Progress
 ```bash
 npm run automate commit
 ```
-Automatically commits progress changes to git with timestamp.
+**What it does:** Automatically commits progress changes to git with timestamp.
+
+**Details:**
+- Runs progress update first
+- Checks git status for changes to PROGRESS.md or PORTFOLIO-BUILD-GUIDE.md
+- Stages only the progress-related files
+- Creates a commit with auto-generated message including current date
+- Does nothing if no changes detected
+- Does NOT push to remote (you control when to push)
+
+**When to use:** Quick way to save progress updates without manually writing commit messages.
 
 #### 3. Generate Component
 ```bash
 npm run automate component <ComponentName>
 ```
-Creates a new React component with TypeScript and CSS module.
+**What it does:** Creates a new React component with TypeScript and CSS module.
+
+**Details:**
+- Generates a functional React component with TypeScript
+- Creates matching CSS Module file with basic styling
+- Uses proper naming conventions (PascalCase for component)
+- Includes imports and export statement
+- Pre-configured with section structure and placeholder content
+- Both files are immediately ready to use
 
 **Example:**
 ```bash
 npm run automate component PhotoGallery
 ```
 Creates:
-- `src/components/PhotoGallery.tsx`
-- `src/components/PhotoGallery.module.css`
+- `src/components/PhotoGallery.tsx` - Component with basic structure
+- `src/components/PhotoGallery.module.css` - Scoped styles
+
+**When to use:** Starting a new feature or section to save time on boilerplate.
 
 #### 4. Generate Sitemap
 ```bash
 npm run automate sitemap
 ```
-Creates `public/sitemap.xml` for SEO optimization.
+**What it does:** Creates `public/sitemap.xml` for SEO optimization.
+
+**Details:**
+- Generates XML sitemap following sitemap.org protocol
+- Includes all main pages with priority and change frequency
+- Helps search engines discover and index your pages
+- Updates automatically each time you run the command
+- Located in `public/` so it's accessible at `/sitemap.xml`
+- Includes: Home, Photography, Projects, About, Contact pages
+
+**When to use:** After adding new pages, or before submitting site to Google Search Console.
 
 #### 5. Performance Check
 ```bash
 npm run automate check
 ```
-Runs basic performance checks on your build.
+**What it does:** Runs basic performance checks on your build.
+
+**Details:**
+- Verifies that `.next/` build directory exists
+- Confirms successful build completion
+- Reports on static page generation
+- Reminds you to run Lighthouse for detailed metrics
+- Quick sanity check before deployment
+- Requires running `npm run build` first
+
+**When to use:** After building, to quickly verify everything compiled correctly.
 
 #### 6. Extract TODOs
 ```bash
 npm run automate todos
 ```
-Scans all TypeScript/JavaScript files for `// TODO` and `// FIXME` comments.
+**What it does:** Scans all TypeScript/JavaScript files for `// TODO` and `// FIXME` comments.
+
+**Details:**
+- Recursively searches entire `src/` directory
+- Finds comments containing `// TODO` or `// FIXME`
+- Reports file path, line number, and comment text
+- Helps track in-code tasks and technical debt
+- Useful for team collaboration and code reviews
+- Outputs in easy-to-read format
+
+**When to use:** Before major releases, during code reviews, or planning sprint work.
 
 #### 7. Run All Automations
 ```bash
 npm run automate all
 ```
-Executes all automation tasks in sequence:
-- Updates progress
-- Generates sitemap
-- Extracts TODOs
+**What it does:** Executes all automation tasks in sequence.
+
+**Details:**
+- Runs in order: progress → sitemap → todos → performance check
+- Each task's output is shown in console
+- Continues even if one task has warnings
+- Comprehensive health check of your project
+- Takes 2-5 seconds depending on project size
+- Great for pre-deployment verification
+
+**Includes:**
+- Updates progress tracker
+- Generates fresh sitemap
+- Extracts all TODO comments
 - Runs performance check
+
+**When to use:** End of day wrap-up, before pushing major changes, or weekly project health check.
 
 #### 8. Show Help
 ```bash
@@ -115,13 +234,33 @@ Displays all available automation commands with examples.
 ```bash
 npm install
 ```
-Installs all project dependencies from `package.json`.
+**What it does:** Installs all project dependencies from `package.json`.
+
+**Details:**
+- Downloads packages from npm registry
+- Creates `node_modules/` folder with all dependencies
+- Generates `package-lock.json` for reproducible builds
+- Installs both dependencies and devDependencies
+- Typical install time: 20-60 seconds
+- Required after cloning repo or pulling package.json changes
+
+**When to use:** First time setting up project, after pulling changes that modified package.json, or when node_modules is deleted.
 
 ### Update Packages
 ```bash
 npm update
 ```
-Updates all packages to their latest compatible versions.
+**What it does:** Updates all packages to their latest compatible versions.
+
+**Details:**
+- Updates packages within version ranges specified in package.json
+- Respects semantic versioning (^14.0.0 updates to 14.x.x, not 15.x.x)
+- Updates package-lock.json with new versions
+- Safer than manually editing package.json
+- Does not update to breaking changes (major versions)
+- Test thoroughly after updating
+
+**When to use:** Monthly maintenance, security updates, or getting latest patches and features.
 
 ### Check for Outdated Packages
 ```bash
@@ -170,13 +309,34 @@ Pushes commits to remote repository.
 ```bash
 vercel
 ```
-Deploys to Vercel (requires `npm i -g vercel` first).
+**What it does:** Deploys to Vercel (requires `npm i -g vercel` first).
+
+**Details:**
+- Creates a preview deployment (not production)
+- Uploads your code to Vercel's servers
+- Runs build automatically in Vercel's infrastructure
+- Generates unique preview URL (e.g., project-abc123.vercel.app)
+- Allows testing before deploying to production
+- First run requires authentication and project linking
+- Subsequent runs are faster (cached builds)
+
+**When to use:** Testing features in production-like environment, sharing work with clients, or QA testing.
 
 ### Deploy to Vercel (Production)
 ```bash
 vercel --prod
 ```
-Deploys directly to production environment.
+**What it does:** Deploys directly to production environment.
+
+**Details:**
+- Skips preview and deploys straight to your main domain
+- Updates live site immediately
+- Runs production build with optimizations
+- Updates production URL (e.g., yoursite.com or project.vercel.app)
+- No rollback prompt (be sure you want to deploy!)
+- Recommended to test with preview deployment first
+
+**When to use:** After testing preview deployment, when ready to update live site with new features or fixes.
 
 ---
 
