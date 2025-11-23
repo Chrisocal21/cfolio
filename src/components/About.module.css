@@ -1,3 +1,108 @@
 .about {
+  background: white;
+  padding: 5rem 2rem;
+}
+
+.aboutContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.aboutHeader {
   text-align: center;
+  margin-bottom: 4rem;
+}
+
+.aboutHeader h2 {
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.aboutContent {
+  display: grid;
+  gap: 4rem;
+}
+
+.bioSection h3,
+.skillsSection h3 {
+  font-size: 1.75rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.bioSection p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--text-color);
+  margin-bottom: 1.25rem;
+  max-width: 100%;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skillCategory {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+}
+
+.skillCategory h4 {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.skillCategory ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillCategory li {
+  padding: 0.625rem 0;
+  color: var(--text-color);
+  font-size: 0.9375rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.skillCategory li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 3rem 1.5rem;
+  }
+
+  .aboutHeader {
+    margin-bottom: 3rem;
+  }
+
+  .aboutContent {
+    gap: 3rem;
+  }
+
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
