@@ -94,7 +94,7 @@
 }
 
 .projectCard {
-  background: white;
+  background: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   overflow: hidden;

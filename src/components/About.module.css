@@ -1,5 +1,5 @@
 .about {
-  background: white;
+  background: var(--bg-color);
   padding: 5rem 2rem;
 }
 
