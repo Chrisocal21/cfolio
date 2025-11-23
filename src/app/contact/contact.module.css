@@ -555,6 +555,83 @@
   box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
 }
 
+/* AI Insights */
+.aiInsights {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px solid var(--primary-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.aiInsights h4 {
+  color: var(--text-color);
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.insightGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.insightItem {
+  background: var(--bg-color);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.insightItem strong {
+  display: block;
+  color: var(--text-light);
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.urgencyHigh {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.urgencyMedium {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.urgencyLow {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.requirements {
+  background: var(--bg-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.requirements strong {
+  display: block;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.requirements ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--text-light);
+}
+
+.requirements li {
+  margin-bottom: 0.25rem;
+}
+
 @media (max-width: 768px) {
   .page {
     padding: 2rem 1.5rem;

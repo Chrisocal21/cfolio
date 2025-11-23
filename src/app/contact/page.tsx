@@ -37,6 +37,9 @@ export default function ContactPage() {
     }
   }
 
+  const [aiAnalysis, setAiAnalysis] = useState<any>(null)
+  const [isAnalyzing, setIsAnalyzing] = useState(false)
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -44,12 +47,50 @@ export default function ContactPage() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const analyzeInquiry = async () => {
+    if (!formData.message || !formData.name || !formData.email) return
+
+    setIsAnalyzing(true)
+    try {
+      const response = await fetch('/api/contact-analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        setAiAnalysis(data.analysis)
+      }
+    } catch (error) {
+      console.error('Analysis error:', error)
+    } finally {
+      setIsAnalyzing(false)
+    }
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Analyze with AI first
+    await analyzeInquiry()
+    
     // Here you can add form submission logic (e.g., send to API, email service, etc.)
     console.log('Form submitted:', formData)
-    alert('Thank you for reaching out! I\'ll get back to you soon.')
+    console.log('AI Analysis:', aiAnalysis)
+    
+    alert(`Thank you for reaching out! I'll get back to you within ${availabilityStatus.responseTime}.`)
     setActiveModal(null)
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      projectType: '',
+      message: '',
+      budget: '',
+      timeline: ''
+    })
+    setAiAnalysis(null)
   }
 
   return (
@@ -343,8 +384,39 @@ export default function ContactPage() {
                       placeholder="Tell me about your project, goals, and any specific requirements..."
                     />
                   </div>
-                  <button type="submit" className={styles.submitButton}>
-                    Send Inquiry
+                  
+                  {aiAnalysis && (
+                    <div className={styles.aiInsights}>
+                      <h4>✨ AI Analysis</h4>
+                      <div className={styles.insightGrid}>
+                        <div className={styles.insightItem}>
+                          <strong>Category:</strong> {aiAnalysis.category}
+                        </div>
+                        <div className={styles.insightItem}>
+                          <strong>Urgency:</strong> <span className={styles[`urgency${aiAnalysis.urgency}`]}>{aiAnalysis.urgency}</span>
+                        </div>
+                        <div className={styles.insightItem}>
+                          <strong>Project Type:</strong> {aiAnalysis.projectType}
+                        </div>
+                        <div className={styles.insightItem}>
+                          <strong>Priority:</strong> {aiAnalysis.priorityScore}/10
+                        </div>
+                      </div>
+                      {aiAnalysis.keyRequirements && (
+                        <div className={styles.requirements}>
+                          <strong>Key Requirements:</strong>
+                          <ul>
+                            {aiAnalysis.keyRequirements.map((req: string, idx: number) => (
+                              <li key={idx}>{req}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
+                  <button type="submit" className={styles.submitButton} disabled={isAnalyzing}>
+                    {isAnalyzing ? 'Analyzing...' : 'Send Inquiry'}
                   </button>
                 </form>
                 <p className={styles.directEmail}>
