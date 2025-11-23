@@ -1,9 +1,11 @@
 import OpenAI from 'openai'
 import { NextResponse } from 'next/server'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+function getOpenAIClient() {
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+}
 
 const CODE_EXPLAINER_PROMPT = `You are a technical documentation expert explaining Chris O'Connell's code from his portfolio projects. 
 
@@ -68,6 +70,8 @@ Question: ${question}
 Please provide a detailed technical explanation.`
     }
 
+    const openai = getOpenAIClient()
+    
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [

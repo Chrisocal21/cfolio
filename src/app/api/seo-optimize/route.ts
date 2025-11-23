@@ -1,9 +1,11 @@
 import OpenAI from 'openai'
 import { NextResponse } from 'next/server'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+function getOpenAIClient() {
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+}
 
 const SEO_OPTIMIZER_PROMPT = `You are an SEO expert optimizing content for ChrisOC Studios, a dual-focus portfolio showcasing professional photography and web development services.
 
@@ -92,6 +94,8 @@ Provide a comprehensive SEO analysis in JSON format with:
 
 Consider both photography and web development services. Focus on local SEO for photography, technical SEO for development.`
 
+    const openai = getOpenAIClient()
+    
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [

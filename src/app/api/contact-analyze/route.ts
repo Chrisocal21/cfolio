@@ -1,9 +1,11 @@
 import OpenAI from 'openai'
 import { NextResponse } from 'next/server'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+function getOpenAIClient() {
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+}
 
 const ANALYSIS_PROMPT = `You are an AI assistant analyzing contact form inquiries for ChrisOC Studios. Analyze the inquiry and provide:
 
@@ -59,6 +61,8 @@ Timeline: ${timeline || 'Not specified'}
 Message: ${message}
 `
 
+    const openai = getOpenAIClient()
+    
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [

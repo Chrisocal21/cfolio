@@ -1,9 +1,11 @@
 import OpenAI from 'openai'
 import { NextResponse } from 'next/server'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+function getOpenAIClient() {
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+}
 
 const SYSTEM_PROMPT = `You are an AI assistant for ChrisOC Studios, representing Chris O'Connell's professional portfolio. You help visitors learn about his work in both photography and web development.
 
@@ -100,6 +102,8 @@ export async function POST(request: Request) {
       )
     }
 
+    const openai = getOpenAIClient()
+    
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini', // Using gpt-4o-mini for cost efficiency, upgrade to gpt-4 for better responses
       messages: [
