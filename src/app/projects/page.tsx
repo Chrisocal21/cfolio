@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './projects.module.css'
@@ -17,63 +18,36 @@ function ProjectsContent() {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      category: 'Web Application',
-      description: 'A full-featured e-commerce platform with cart, checkout, and payment integration built with Next.js and Stripe.',
-      tech: ['Next.js', 'TypeScript', 'Stripe', 'MongoDB'],
-      image: '/placeholder.jpg',
-      link: '#',
-      github: '#'
+      title: 'ChrisOCPhoto',
+      category: 'Photography Portfolio',
+      description: 'Professional photography portfolio showcasing creative work with elegant galleries and client booking system.',
+      tech: ['WordPress', 'Custom Theme', 'Gallery Plugin'],
+      url: 'https://www.chrisocphoto.com',
+      link: 'https://www.chrisocphoto.com',
+      github: undefined,
+      screenshot: '/screenshots/chrisocphoto.png'
     },
     {
       id: 2,
-      title: 'Portfolio Website',
-      category: 'Web Design',
-      description: 'Responsive portfolio website for a creative professional with smooth animations and great UX.',
-      tech: ['React', 'Framer Motion', 'Tailwind CSS'],
-      image: '/placeholder.jpg',
-      link: '#',
-      github: '#'
+      title: 'CookbookVerse',
+      category: 'Recipe Platform',
+      description: 'Digital cookbook platform for discovering, saving, and sharing recipes with an intuitive user experience.',
+      tech: ['React', 'Node.js', 'Database'],
+      url: 'https://www.cookbookverse.com',
+      link: 'https://www.cookbookverse.com',
+      github: undefined,
+      screenshot: '/screenshots/cookbookverse.png'
     },
     {
       id: 3,
-      title: 'Task Management App',
-      category: 'Web Application',
-      description: 'Collaborative task management tool with real-time updates and team features.',
-      tech: ['Next.js', 'Firebase', 'Material-UI'],
-      image: '/placeholder.jpg',
-      link: '#',
-      github: '#'
-    },
-    {
-      id: 4,
-      title: 'Weather Dashboard',
-      category: 'Web Application',
-      description: 'Real-time weather dashboard with forecasts and interactive maps.',
-      tech: ['React', 'OpenWeather API', 'Chart.js'],
-      image: '/placeholder.jpg',
-      link: '#',
-      github: '#'
-    },
-    {
-      id: 5,
-      title: 'Blog Platform',
-      category: 'CMS',
-      description: 'Modern blog platform with markdown support and SEO optimization.',
-      tech: ['Next.js', 'MDX', 'Contentful'],
-      image: '/placeholder.jpg',
-      link: '#',
-      github: '#'
-    },
-    {
-      id: 6,
-      title: 'Fitness Tracker',
-      category: 'Mobile App',
-      description: 'Mobile-first fitness tracking app with workout plans and progress charts.',
-      tech: ['React Native', 'Firebase', 'Chart.js'],
-      image: '/placeholder.jpg',
-      link: '#',
-      github: '#'
+      title: 'GetEditly',
+      category: 'SaaS Platform',
+      description: 'Web-based editing tool with collaborative features and real-time updates for content creators.',
+      tech: ['Next.js', 'TypeScript', 'WebSockets'],
+      url: 'https://www.geteditly.com',
+      link: 'https://www.geteditly.com',
+      github: undefined,
+      screenshot: '/screenshots/geteditly.png'
     }
   ]
 
@@ -88,11 +62,22 @@ function ProjectsContent() {
         <div className={styles.projectsGrid}>
           {projects.map((project) => (
             <div key={project.id} className={styles.projectCard}>
-              <div className={styles.projectImage}>
-                <div className={styles.imagePlaceholder}>
-                  <span>Project Screenshot</span>
+              <Link href={project.link} target="_blank" rel="noopener noreferrer" className={styles.projectImageLink}>
+                <div className={styles.projectImage}>
+                  <div className={styles.screenshotContainer}>
+                    <div className={styles.placeholderFallback}>
+                      <span className={styles.projectIcon}>
+                        {project.category.includes('Photo') ? '📷' : project.category.includes('Recipe') ? '🍳' : '✏️'}
+                      </span>
+                      <p className={styles.projectTitle}>{project.title}</p>
+                      <p className={styles.projectUrl}>{project.url.replace('https://www.', '')}</p>
+                    </div>
+                  </div>
+                  <div className={styles.imageOverlay}>
+                    <span className={styles.viewButton}>View Live Site →</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
               <div className={styles.projectContent}>
                 <span className={styles.category}>{project.category}</span>
                 <h3>{project.title}</h3>
@@ -104,12 +89,14 @@ function ProjectsContent() {
                 </div>
               </div>
               <div className={styles.projectFooter}>
-                <Link href={project.link} className={styles.projectLink}>
-                  View Live →
+                <Link href={project.link} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
+                  Visit Site →
                 </Link>
-                <Link href={project.github} className={styles.projectLink}>
-                  GitHub →
-                </Link>
+                {project.github && (
+                  <Link href={project.github} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
+                    GitHub →
+                  </Link>
+                )}
               </div>
             </div>
           ))}

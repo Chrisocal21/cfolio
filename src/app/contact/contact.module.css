@@ -81,14 +81,16 @@
   font-size: 0.9375rem;
 }
 
-.socialSection {
+.socialSection,
+.websitesSection {
   background: var(--bg-secondary);
   padding: 3rem;
   border-radius: 1rem;
   border: 1px solid var(--border-color);
 }
 
-.socialSection h2 {
+.socialSection h2,
+.websitesSection h2 {
   font-size: 2rem;
   color: var(--text-color);
   margin-bottom: 1rem;
@@ -111,8 +113,10 @@
 
 .socialLink {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  text-align: center;
+  gap: 1rem;
   padding: 1.5rem;
   background: var(--bg-color);
   border: 1px solid var(--border-color);
@@ -128,8 +132,16 @@
 }
 
 .socialIcon {
-  font-size: 2.5rem;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover .socialIcon {
+  color: var(--secondary-color);
 }
 
 .socialLink h4 {
