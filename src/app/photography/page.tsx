@@ -8,7 +8,7 @@ export default function PhotographyPage() {
     <>
       <Navigation />
       <div className={styles.page}>
-      <div className={styles.container}>
+        <div className={styles.container}>
         <div className={styles.pageHeader}>
           <h1>📷 Photography</h1>
           <p>Capturing moments and telling stories through images</p>
