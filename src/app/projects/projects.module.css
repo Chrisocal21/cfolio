@@ -155,6 +155,13 @@
   flex: 1;
 }
 
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
 .category {
   display: inline-block;
   font-size: 0.8125rem;
@@ -162,7 +169,12 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 0.75rem;
+}
+
+.projectDate {
+  font-size: 0.8125rem;
+  color: var(--text-light);
+  font-weight: 500;
 }
 
 .projectContent h3 {
@@ -202,16 +214,32 @@
   gap: 1rem;
 }
 
-.projectLink {
+.projectLink,
+.githubLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--primary-color);
+  text-decoration: none;
   font-weight: 600;
   font-size: 0.9375rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
 }
 
-.projectLink:hover {
-  color: var(--secondary-color);
+.projectLink:hover,
+.githubLink:hover {
+  color: white;
+  background: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+}
+
+.projectLink svg,
+.githubLink svg {
+  flex-shrink: 0;
 }
 
 .pageFooter {

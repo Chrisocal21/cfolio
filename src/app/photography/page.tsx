@@ -8,24 +8,24 @@ import Footer from '@/components/Footer'
 import styles from './photography.module.css'
 
 const photos = [
-  { src: '/photography/Yosemite falls.jpg', alt: 'Yosemite Falls' },
-  { src: '/photography/Death Valley 060.jpg', alt: 'Death Valley' },
-  { src: '/photography/whitneys portal.jpg', alt: 'Whitney\'s Portal' },
-  { src: '/photography/morobay.jpg', alt: 'Morro Bay' },
-  { src: '/photography/Gview.jpg', alt: 'Garden View' },
-  { src: '/photography/IMG_5613.JPG', alt: 'Nature Photography' },
-  { src: '/photography/14733575_1792749324276055_6134730289726881792_n.jpg', alt: 'Landscape Photography' },
-  { src: '/photography/14733127_790065137799827_7646785865724723200_n.jpg', alt: 'Nature Scene' },
-  { src: '/photography/14727432_319095848448310_4245529409219461120_n.jpg', alt: 'Scenic View' },
-  { src: '/photography/14723469_1669243566719997_5672245599953485824_n.jpg', alt: 'Outdoor Photography' },
-  { src: '/photography/12142143_443914715793745_489165632_n.jpg', alt: 'Photography Sample' },
-  { src: '/photography/12142143_1653976954875483_212987198_n.jpg', alt: 'Photography Collection' },
-  { src: '/photography/12135239_735646073248668_1679387215_n.jpg', alt: 'Photo Series' },
-  { src: '/photography/12120526_163674963984590_1526845879_n.jpg', alt: 'Photo Gallery' },
-  { src: '/photography/12081170_914457225314351_1637501026_n.jpg', alt: 'Photography Work' },
-  { src: '/photography/12071192_476443895894043_1233713200_n.jpg', alt: 'Photo Collection' },
-  { src: '/photography/11856692_906244889458062_215255781_n.jpg', alt: 'Photography Portfolio' },
-  { src: '/photography/11349189_192521327747333_1881580269_n.jpg', alt: 'Photo Showcase' },
+  { src: '/photography/Yosemite falls.jpg', alt: 'Majestic Yosemite Falls cascading down granite cliffs in Yosemite National Park', title: 'Yosemite Falls' },
+  { src: '/photography/Death Valley 060.jpg', alt: 'Golden hour light illuminating the dramatic sand dunes and mountains of Death Valley', title: 'Death Valley Dunes' },
+  { src: '/photography/whitneys portal.jpg', alt: 'Mountain vista at Whitney Portal with towering peaks and alpine scenery', title: 'Whitney\'s Portal' },
+  { src: '/photography/morobay.jpg', alt: 'Serene coastal scene at Morro Bay featuring the iconic Morro Rock at sunset', title: 'Morro Bay Sunset' },
+  { src: '/photography/Gview.jpg', alt: 'Lush garden landscape with vibrant flowers and natural greenery', title: 'Garden Vista' },
+  { src: '/photography/IMG_5613.JPG', alt: 'Stunning natural landscape capturing the beauty of California wilderness', title: 'California Wilderness' },
+  { src: '/photography/14733575_1792749324276055_6134730289726881792_n.jpg', alt: 'Dramatic landscape photography showcasing mountain peaks and valley formations', title: 'Mountain Landscape' },
+  { src: '/photography/14733127_790065137799827_7646785865724723200_n.jpg', alt: 'Natural outdoor scene highlighting California\'s diverse terrain and lighting', title: 'California Terrain' },
+  { src: '/photography/14727432_319095848448310_4245529409219461120_n.jpg', alt: 'Scenic outdoor photography capturing atmospheric lighting and natural beauty', title: 'Scenic Atmosphere' },
+  { src: '/photography/14723469_1669243566719997_5672245599953485824_n.jpg', alt: 'Outdoor adventure photography featuring rugged landscapes and exploration', title: 'Outdoor Adventure' },
+  { src: '/photography/12142143_443914715793745_489165632_n.jpg', alt: 'Professional event photography capturing authentic moments and emotions', title: 'Event Moments' },
+  { src: '/photography/12142143_1653976954875483_212987198_n.jpg', alt: 'Candid photography showcasing natural interactions and genuine expressions', title: 'Candid Moments' },
+  { src: '/photography/12135239_735646073248668_1679387215_n.jpg', alt: 'Documentary-style photography telling stories through visual narrative', title: 'Visual Narrative' },
+  { src: '/photography/12120526_163674963984590_1526845879_n.jpg', alt: 'Creative photography composition with artistic framing and perspective', title: 'Creative Composition' },
+  { src: '/photography/12081170_914457225314351_1637501026_n.jpg', alt: 'Professional portrait and event photography with natural lighting', title: 'Natural Light Portrait' },
+  { src: '/photography/12071192_476443895894043_1233713200_n.jpg', alt: 'Lifestyle photography capturing authentic moments in everyday settings', title: 'Lifestyle Photography' },
+  { src: '/photography/11856692_906244889458062_215255781_n.jpg', alt: 'Dynamic action and event photography freezing moments in time', title: 'Action Photography' },
+  { src: '/photography/11349189_192521327747333_1881580269_n.jpg', alt: 'Professional photography showcasing creative vision and technical skill', title: 'Creative Vision' },
 ]
 
 export default function PhotographyPage() {
@@ -72,9 +72,12 @@ export default function PhotographyPage() {
                 height={600}
                 className={styles.photoImage}
                 quality={85}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA3gAA="
               />
               <div className={styles.photoOverlay}>
-                <p>{photo.alt}</p>
+                <p>{photo.title}</p>
               </div>
             </div>
           ))}
@@ -111,8 +114,10 @@ export default function PhotographyPage() {
                 height={1080}
                 className={styles.lightboxImage}
                 quality={95}
+                priority
               />
               <div className={styles.lightboxCaption}>
+                <h3>{photos[currentIndex].title}</h3>
                 <p>{photos[currentIndex].alt}</p>
                 <span className={styles.imageCounter}>
                   {currentIndex + 1} / {photos.length}

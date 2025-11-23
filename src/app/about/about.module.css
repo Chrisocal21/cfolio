@@ -34,7 +34,8 @@
 
 .bioSection,
 .skillsSection,
-.experienceSection {
+.experienceSection,
+.educationSection {
   background: var(--bg-color);
   padding: 3rem;
   border-radius: 1rem;
@@ -43,7 +44,8 @@
 
 .bioSection h2,
 .skillsSection h2,
-.experienceSection h2 {
+.experienceSection h2,
+.educationSection h2 {
   font-size: 2rem;
   color: var(--text-color);
   margin-bottom: 1.5rem;
@@ -130,11 +132,46 @@
   font-weight: 600;
 }
 
+.company {
+  color: var(--primary-color) !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  font-size: 0.875rem !important;
+}
+
 .timelineContent p {
   color: var(--text-light);
   line-height: 1.6;
   margin: 0;
   font-size: 0.9375rem;
+}
+
+.educationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.educationItem {
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+}
+
+.educationItem h4 {
+  font-size: 1.125rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.educationItem p {
+  color: var(--text-light);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -148,11 +185,13 @@
 
   .bioSection,
   .skillsSection,
-  .experienceSection {
+  .experienceSection,
+  .educationSection {
     padding: 2rem 1.5rem;
   }
 
-  .skillsGrid {
+  .skillsGrid,
+  .educationGrid {
     grid-template-columns: 1fr;
   }
 

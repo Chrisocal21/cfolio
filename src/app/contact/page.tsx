@@ -1,9 +1,57 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import styles from './contact.module.css'
 
+type ModalType = 'email' | 'location' | 'availability' | null
+
 export default function ContactPage() {
+  const [activeModal, setActiveModal] = useState<ModalType>(null)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    projectType: '',
+    message: '',
+    budget: '',
+    timeline: ''
+  })
+
+  // Dynamic availability status (you can update this based on your workload)
+  const availabilityStatus = {
+    status: 'available', // 'available', 'busy', 'booked'
+    statusText: 'Currently Accepting Projects',
+    nextAvailable: 'Immediate availability',
+    responseTime: '24-48 hours'
+  }
+
+  const getStatusColor = () => {
+    switch(availabilityStatus.status) {
+      case 'available': return '#10b981' // green
+      case 'busy': return '#f59e0b' // orange
+      case 'booked': return '#ef4444' // red
+      default: return '#6b7280'
+    }
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Here you can add form submission logic (e.g., send to API, email service, etc.)
+    console.log('Form submitted:', formData)
+    alert('Thank you for reaching out! I\'ll get back to you soon.')
+    setActiveModal(null)
+  }
+
   return (
     <>
       <Navigation />
@@ -12,37 +60,54 @@ export default function ContactPage() {
         <div className={styles.pageHeader}>
           <h1>Let&apos;s Work Together</h1>
           <p>Get in touch for photography sessions or web development projects</p>
+          
+          {/* Availability Indicator */}
+          <div className={styles.availabilityBanner}>
+            <div className={styles.statusIndicator}>
+              <span 
+                className={styles.statusDot}
+                style={{ backgroundColor: getStatusColor() }}
+              />
+              <span className={styles.statusText}>{availabilityStatus.statusText}</span>
+            </div>
+            <div className={styles.availabilityDetails}>
+              <span>⚡ {availabilityStatus.nextAvailable}</span>
+              <span>📬 Response: {availabilityStatus.responseTime}</span>
+            </div>
+          </div>
         </div>
 
         <div className={styles.content}>
           <div className={styles.contactInfo}>
-            <div className={styles.infoCard}>
+            <button 
+              className={styles.infoCard}
+              onClick={() => setActiveModal('email')}
+            >
               <div className={styles.icon} role="img" aria-label="Email icon">📧</div>
               <h3>Email</h3>
-              <Link href="mailto:hello@chrisocstudios.com">
-                hello@chrisocstudios.com
-              </Link>
-            </div>
+              <p className={styles.infoLink}>hello@chrisocstudios.com</p>
+              <span className={styles.clickHint}>Click to send inquiry</span>
+            </button>
 
-            <div className={styles.infoCard}>
-              <div className={styles.icon} role="img" aria-label="Phone icon">📱</div>
-              <h3>Phone</h3>
-              <Link href="tel:+1234567890">
-                Available upon request
-              </Link>
-            </div>
-
-            <div className={styles.infoCard}>
+            <button 
+              className={styles.infoCard}
+              onClick={() => setActiveModal('location')}
+            >
               <div className={styles.icon} role="img" aria-label="Location icon">📍</div>
               <h3>Location</h3>
-              <p>Remote / Available Worldwide</p>
-            </div>
+              <p className={styles.infoLink}>Oceanside, CA</p>
+              <span className={styles.clickHint}>Click for details</span>
+            </button>
 
-            <div className={styles.infoCard}>
+            <button 
+              className={styles.infoCard}
+              onClick={() => setActiveModal('availability')}
+            >
               <div className={styles.icon}>💼</div>
               <h3>Availability</h3>
-              <p>Currently accepting new projects</p>
-            </div>
+              <p className={styles.infoLink}>View Schedule</p>
+              <span className={styles.clickHint}>Click to check availability</span>
+            </button>
           </div>
 
           <div className={styles.socialSection}>
@@ -164,6 +229,224 @@ export default function ContactPage() {
         </div>
       </div>
       </div>
+
+      {/* Modal Overlays */}
+      {activeModal && (
+        <div className={styles.modalOverlay} onClick={() => setActiveModal(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button 
+              className={styles.modalClose}
+              onClick={() => setActiveModal(null)}
+              aria-label="Close modal"
+            >
+              ✕
+            </button>
+
+            {activeModal === 'email' && (
+              <div className={styles.modalBody}>
+                <h2>📧 Send an Inquiry</h2>
+                <p>Fill out the form below and I&apos;ll get back to you within 24-48 hours.</p>
+                <form onSubmit={handleSubmit} className={styles.contactForm}>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="name">Name *</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="Your full name"
+                    />
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="email">Email *</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="phone">Phone</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="(555) 123-4567"
+                    />
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="projectType">Project Type *</label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleInputChange}
+                      required
+                    >
+                      <option value="">Select a service</option>
+                      <option value="photography">Photography Session</option>
+                      <option value="event">Event Photography</option>
+                      <option value="web">Web Development</option>
+                      <option value="webapp">Web Application</option>
+                      <option value="both">Photography + Web Dev</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="budget">Budget Range</label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleInputChange}
+                    >
+                      <option value="">Select budget range</option>
+                      <option value="under1k">Under $1,000</option>
+                      <option value="1k-5k">$1,000 - $5,000</option>
+                      <option value="5k-10k">$5,000 - $10,000</option>
+                      <option value="10k-plus">$10,000+</option>
+                      <option value="flexible">Flexible</option>
+                    </select>
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="timeline">Timeline</label>
+                    <select
+                      id="timeline"
+                      name="timeline"
+                      value={formData.timeline}
+                      onChange={handleInputChange}
+                    >
+                      <option value="">Select timeline</option>
+                      <option value="urgent">ASAP (Within 1 week)</option>
+                      <option value="soon">1-2 weeks</option>
+                      <option value="month">1 month</option>
+                      <option value="flexible">Flexible</option>
+                    </select>
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="message">Project Details *</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={5}
+                      placeholder="Tell me about your project, goals, and any specific requirements..."
+                    />
+                  </div>
+                  <button type="submit" className={styles.submitButton}>
+                    Send Inquiry
+                  </button>
+                </form>
+                <p className={styles.directEmail}>
+                  Or email directly: <a href="mailto:hello@chrisocstudios.com">hello@chrisocstudios.com</a>
+                </p>
+              </div>
+            )}
+
+            {activeModal === 'location' && (
+              <div className={styles.modalBody}>
+                <h2>📍 Location & Service Areas</h2>
+                <div className={styles.locationInfo}>
+                  <div className={styles.locationCard}>
+                    <h3>🏠 Based In</h3>
+                    <p>Oceanside, California</p>
+                    <p className={styles.subtext}>San Diego County</p>
+                  </div>
+                  <div className={styles.locationCard}>
+                    <h3>📷 Photography Services</h3>
+                    <ul>
+                      <li>Local: San Diego County & Orange County</li>
+                      <li>Regional: Southern California</li>
+                      <li>Destination: Available for travel</li>
+                    </ul>
+                  </div>
+                  <div className={styles.locationCard}>
+                    <h3>💻 Web Development</h3>
+                    <p>100% Remote</p>
+                    <p className={styles.subtext}>Serving clients worldwide</p>
+                  </div>
+                  <div className={styles.locationCard}>
+                    <h3>🌎 Available For</h3>
+                    <ul>
+                      <li>On-location shoots</li>
+                      <li>Studio sessions (Vista, CA)</li>
+                      <li>Virtual consultations</li>
+                      <li>Destination projects</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeModal === 'availability' && (
+              <div className={styles.modalBody}>
+                <h2>💼 Current Availability</h2>
+                <div className={styles.availabilityStatus}>
+                  <div className={styles.statusBadge} style={{ backgroundColor: getStatusColor() }}>
+                    <span className={styles.statusDot} style={{ backgroundColor: '#fff' }} />
+                    {availabilityStatus.statusText}
+                  </div>
+                  <div className={styles.availabilityGrid}>
+                    <div className={styles.availItem}>
+                      <span className={styles.availIcon}>⚡</span>
+                      <div>
+                        <strong>Next Available:</strong>
+                        <p>{availabilityStatus.nextAvailable}</p>
+                      </div>
+                    </div>
+                    <div className={styles.availItem}>
+                      <span className={styles.availIcon}>📬</span>
+                      <div>
+                        <strong>Response Time:</strong>
+                        <p>{availabilityStatus.responseTime}</p>
+                      </div>
+                    </div>
+                    <div className={styles.availItem}>
+                      <span className={styles.availIcon}>📅</span>
+                      <div>
+                        <strong>Booking Window:</strong>
+                        <p>2-4 weeks recommended</p>
+                      </div>
+                    </div>
+                    <div className={styles.availItem}>
+                      <span className={styles.availIcon}>🎯</span>
+                      <div>
+                        <strong>Project Capacity:</strong>
+                        <p>Taking 2-3 new clients/month</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.currentProjects}>
+                    <h3>Current Focus</h3>
+                    <div className={styles.projectTags}>
+                      <span className={styles.tag}>Photography Sessions</span>
+                      <span className={styles.tag}>Web Development</span>
+                      <span className={styles.tag}>Event Coverage</span>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={() => setActiveModal('email')} 
+                    className={styles.bookButton}
+                  >
+                    Book a Consultation
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       <Footer />
     </>
   )

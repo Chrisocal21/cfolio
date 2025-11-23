@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 :root {
@@ -16,6 +17,7 @@ html {
   --bg-color: #ffffff;
   --bg-secondary: #f9fafb;
   --border-color: #e5e7eb;
+  --transition-speed: 0.3s;
 }
 
 [data-theme='dark'] {
@@ -32,7 +34,19 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  overflow-x: hidden;
+}
+
+/* Smooth page transitions */
+@media (prefers-reduced-motion: no-preference) {
+  a, button, [role="button"] {
+    transition: all var(--transition-speed) ease;
+  }
+  
+  img {
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+  }
 }
 
 h2 {
