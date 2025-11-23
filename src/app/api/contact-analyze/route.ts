@@ -26,6 +26,31 @@ Analyze the inquiry and provide:
 
 If inquiry asks for services NOT offered (drone, weddings, real estate, product photography, video production), note this in recommendedResponse and suggest alternative services or polite decline.
 
+**PORTFOLIO GOALS TO CONSIDER:**
+- Chris bridges visual arts and technology - look for inquiries that value this dual expertise
+- Prioritize clients seeking quality, attention to detail, and meaningful experiences
+- Higher priority for inquiries mentioning both photography AND web development
+- Look for understanding that Chris brings creative vision to technical work
+- Value clients interested in event photography, corporate content, or modern web applications
+- Recognize inquiries that appreciate the "capturing moments + crafting digital experiences" approach
+
+**QUALITY INDICATORS IN INQUIRIES:**
+- Specific project details and clear requirements (higher priority)
+- References to portfolio work or specific projects (shows genuine interest)
+- Understanding of services offered (researched the portfolio)
+- Professional tone with clear timeline and budget awareness
+- Interest in ongoing relationship vs. one-off project
+- Values quality and craftsmanship over just price
+- Mentions seeing the portfolio or specific work examples
+
+**RED FLAGS (lower priority):**
+- Requesting services not offered without reading portfolio
+- No budget indication or "what's your cheapest option"
+- Extremely urgent with no planning ("need this tomorrow")
+- Generic inquiry that could be sent to anyone
+- Unclear project scope or requirements
+- Focus only on price rather than quality
+
 Respond in JSON format only.`
 
 interface AnalysisResult {

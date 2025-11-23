@@ -10,14 +10,24 @@ interface Message {
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
+  
+  // Fun project teasers that rotate
+  const projectTeasers = [
+    'Hi! I\'m here to help you learn about Chris\'s work in photography and web development. What would you like to know?',
+    'Hey there! Did you know Chris combines photography expertise with web development? Ask me anything about his projects!',
+    'Welcome! Chris has built some cool projects like CookbookVerse (recipes) and GetEditly (video editing). Want to know more?',
+    'Hi! Fun fact: This portfolio uses Next.js 14 and TypeScript, the same tech stack as Chris\'s other projects. What can I help you with?'
+  ]
+  
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: 'Hi! I\'m here to help you learn about Chris\'s work in photography and web development. What would you like to know?'
+      content: projectTeasers[Math.floor(Math.random() * projectTeasers.length)]
     }
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [apiConnected, setApiConnected] = useState(true)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const scrollToBottom = () => {
@@ -65,8 +75,10 @@ export default function ChatWidget() {
         role: 'assistant',
         content: data.message
       }])
+      setApiConnected(true)
     } catch (error: any) {
       console.error('Chat error:', error)
+      setApiConnected(false)
       setMessages([...newMessages, {
         role: 'assistant',
         content: 'Sorry, I encountered an error. Please try again or contact Chris directly at hello@chrisocstudios.com.'
@@ -80,7 +92,9 @@ export default function ChatWidget() {
     'What projects have you worked on?',
     'Tell me about your photography services',
     'What web development technologies do you use?',
-    'Are you available for new projects?'
+    'Are you available for new projects?',
+    '🎨 Show me something cool',
+    '📸 Surprise me with a photo'
   ]
 
   const handleSuggestedQuestion = (question: string) => {
@@ -215,7 +229,14 @@ export default function ChatWidget() {
           </form>
 
           <div className={styles.chatFooter}>
-            <p>Powered by AI • <a href="/contact">Contact directly</a></p>
+            <p>
+              <span className={styles.statusIndicator}>
+                <span className={`${styles.statusLight} ${apiConnected ? styles.connected : styles.disconnected}`} />
+                {apiConnected ? 'AI Connected' : 'AI Offline'}
+              </span>
+              {' • '}
+              <a href="/contact">Contact directly</a>
+            </p>
           </div>
         </div>
       )}
