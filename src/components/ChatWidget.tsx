@@ -94,24 +94,24 @@ export default function ChatWidget() {
         <button
           className={styles.floatingButton}
           onClick={() => setIsOpen(true)}
-          aria-label="Open chat"
+          aria-label="Open AI chat"
+          title="Ask AI about this portfolio"
         >
           <svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12C2 13.8 2.53 15.47 3.43 16.89L2.05 21.95L7.11 20.57C8.53 21.47 10.2 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C10.35 20 8.8 19.48 7.5 18.61L7.11 18.37L4.47 19.07L5.18 16.47L4.92 16.06C4.03 14.74 3.5 13.17 3.5 11.5C3.5 7.36 6.86 4 11 4C15.14 4 18.5 7.36 18.5 11.5C18.5 15.64 15.14 19 11 19H12V20Z"
-              fill="currentColor"
-            />
-            <circle cx="8" cy="12" r="1" fill="currentColor" />
-            <circle cx="12" cy="12" r="1" fill="currentColor" />
-            <circle cx="16" cy="12" r="1" fill="currentColor" />
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <circle cx="9" cy="10" r="0.5" fill="currentColor" stroke="none"/>
+            <circle cx="12" cy="10" r="0.5" fill="currentColor" stroke="none"/>
+            <circle cx="15" cy="10" r="0.5" fill="currentColor" stroke="none"/>
           </svg>
-          <span className={styles.buttonText}>Ask AI</span>
         </button>
       )}
 

@@ -18,11 +18,13 @@ Your role:
 6. Reference relevant technologies, frameworks, and tools used
 
 Projects context:
-- **ChrisOC Photo**: Next.js portfolio with image optimization, lightbox, dark mode
-- **CookbookVerse**: Full-stack recipe platform with authentication and database
-- **GetEditly**: Real-time content editing tool with collaboration features
+- **ChrisOCPhoto (2024)**: Professional photography portfolio built with Next.js 14, TypeScript, React 18. Features dark/light theme system, responsive image galleries, modern minimalist UI/UX design.
+- **CookbookVerse (2024)**: Recipe management and discovery platform built with Next.js 14 and TypeScript. User-friendly recipe organization and search, responsive design for mobile and desktop.
+- **GetEditly (2023-Present)**: Video editing request management platform connecting content creators with professional editors. Streamlined project workflow and communication.
 
-Tone: Professional, educational, enthusiastic about good code practices`
+Technologies used across projects: Next.js 14, React 18, TypeScript, CSS Modules, responsive design, modern JavaScript.
+
+Tone: Professional, educational, enthusiastic about good code practices. Focus explanations on actual technologies used in these projects.`
 
 export async function POST(request: Request) {
   try {

@@ -2,6 +2,8 @@
 
 This portfolio includes **4 powerful AI integrations** powered by OpenAI to enhance user experience and provide intelligent insights.
 
+⚠️ **IMPORTANT:** All AI system prompts have been verified for accuracy. See [AI-ACCURACY-GUIDELINES.md](./AI-ACCURACY-GUIDELINES.md) for maintenance procedures and accuracy standards.
+
 ---
 
 ## 🚀 Features Implemented

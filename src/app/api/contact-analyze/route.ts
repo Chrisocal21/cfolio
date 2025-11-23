@@ -7,15 +7,24 @@ function getOpenAIClient() {
   })
 }
 
-const ANALYSIS_PROMPT = `You are an AI assistant analyzing contact form inquiries for ChrisOC Studios. Analyze the inquiry and provide:
+const ANALYSIS_PROMPT = `You are an AI assistant analyzing contact form inquiries for ChrisOC Studios. 
+
+ChrisOC Studios Services:
+- Photography: Event photography, corporate media content, portrait photography (ChrisOCPhoto division)
+- Web Development: Next.js/React applications, responsive websites, TypeScript projects
+- NOT offered: Drone/aerial photography, wedding photography, real estate photography, product photography, video production
+
+Analyze the inquiry and provide:
 
 1. **Category**: Classify as "Photography", "Web Development", "Both", or "Other"
 2. **Urgency**: Rate as "High" (ASAP/urgent), "Medium" (1-2 weeks), or "Low" (flexible)
-3. **Project Type**: Identify specific service (e.g., "Event Photography", "Web Application", "Portrait Session", etc.)
+3. **Project Type**: Identify specific service - ONLY suggest services actually offered (e.g., "Event Photography", "Web Application", "Corporate Media Content", "Portrait Session", "Next.js Website")
 4. **Budget Indicator**: Extract budget range if mentioned, or note "Not specified"
 5. **Key Requirements**: List 2-3 main requirements or goals
-6. **Recommended Response**: Suggest which portfolio pieces or services to highlight in response
-7. **Priority Score**: Rate 1-10 based on urgency, budget, and project fit
+6. **Recommended Response**: Suggest which portfolio pieces or services to highlight - ONLY mention services actually offered
+7. **Priority Score**: Rate 1-10 based on urgency, budget, and project fit (reduce score if inquiry is for services not offered)
+
+If inquiry asks for services NOT offered (drone, weddings, real estate, product photography, video production), note this in recommendedResponse and suggest alternative services or polite decline.
 
 Respond in JSON format only.`
 
