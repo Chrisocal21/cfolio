@@ -7,13 +7,26 @@ export default function Contact() {
       <h2>Get In Touch</h2>
       <p>Let&apos;s connect! Update with your contact information.</p>
       <div className={styles.socialLinks}>
-        <Link href="#" className={styles.socialLink}>
+        <Link 
+          href="https://github.com/yourusername" 
+          className={styles.socialLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           GitHub
         </Link>
-        <Link href="#" className={styles.socialLink}>
+        <Link 
+          href="https://linkedin.com/in/yourusername" 
+          className={styles.socialLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           LinkedIn
         </Link>
-        <Link href="#" className={styles.socialLink}>
+        <Link 
+          href="mailto:your.email@example.com" 
+          className={styles.socialLink}
+        >
           Email
         </Link>
       </div>
