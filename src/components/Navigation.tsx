@@ -9,7 +9,11 @@ export default function Navigation() {
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.logo}>MY_PORTFOLIO</div>
+      <Link href="/" className={styles.logo}>
+        <span className={styles.logoIcon}>◢</span>
+        <span className={styles.logoText}>ChrisOC</span>
+        <span className={styles.logoStudio}>Studios</span>
+      </Link>
       
       <button 
         className={styles.menuToggle}
@@ -24,13 +28,16 @@ export default function Navigation() {
 
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ''}`}>
         <li>
-          <Link href="#about" onClick={() => setIsMenuOpen(false)}>About</Link>
+          <Link href="/photography" onClick={() => setIsMenuOpen(false)}>Photography</Link>
         </li>
         <li>
-          <Link href="#work" onClick={() => setIsMenuOpen(false)}>Work</Link>
+          <Link href="/projects" onClick={() => setIsMenuOpen(false)}>Projects</Link>
         </li>
         <li>
-          <Link href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+          <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+        </li>
+        <li>
+          <Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
         </li>
       </ul>
     </nav>

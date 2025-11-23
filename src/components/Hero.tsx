@@ -6,7 +6,11 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.heroContent}>
         <h1 className={styles.title}>
-          Hello, I&apos;m <span className={styles.highlight}>[Your Name]</span>
+          <span className={styles.welcomeText}>Welcome to</span>
+          <span className={styles.brandLine}>
+            <span className={styles.heroIcon}>◢</span>
+            <span className={styles.brandName}>ChrisOC</span> <span className={styles.brandStudios}>Studios</span>
+          </span>
         </h1>
         <p className={styles.subtitle}>
           Photographer & Developer
@@ -17,12 +21,12 @@ export default function Hero() {
         </p>
         
         <div className={styles.ctaGrid}>
-          <Link href="#photography" className={styles.ctaCard}>
+          <Link href="/photography" className={styles.ctaCard}>
             <div className={styles.ctaIcon}>📷</div>
             <h3>Photography</h3>
             <p>View my photo gallery</p>
           </Link>
-          <Link href="#projects" className={styles.ctaCard}>
+          <Link href="/projects" className={styles.ctaCard}>
             <div className={styles.ctaIcon}>💻</div>
             <h3>Development</h3>
             <p>See my tech projects</p>
@@ -30,10 +34,10 @@ export default function Hero() {
         </div>
 
         <div className={styles.quickLinks}>
-          <Link href="#about" className={styles.linkBtn}>
+          <Link href="/about" className={styles.linkBtn}>
             Learn More About Me
           </Link>
-          <Link href="#contact" className={styles.linkBtn}>
+          <Link href="/contact" className={styles.linkBtn}>
             Get In Touch
           </Link>
         </div>

@@ -5,7 +5,7 @@ export default function Footer() {
   
   return (
     <footer className={styles.footer}>
-      <p>&copy; {currentYear} MY_PORTFOLIO. All rights reserved.</p>
+      <p>&copy; {currentYear} ChrisOC Studios. All rights reserved.</p>
     </footer>
   )
 }
