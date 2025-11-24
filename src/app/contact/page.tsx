@@ -127,7 +127,7 @@ export default function ContactPage() {
             >
               <div className={styles.icon} role="img" aria-label="Email icon">📧</div>
               <h3>Email</h3>
-              <p className={styles.infoLink}>hello@chrisocstudios.com</p>
+              <p className={styles.infoLink}>hello@chrisocdigital.com</p>
               <span className={styles.clickHint}>Click to send inquiry</span>
             </button>
 
@@ -421,7 +421,7 @@ export default function ContactPage() {
                   </button>
                 </form>
                 <p className={styles.directEmail}>
-                  Or email directly: <a href="mailto:hello@chrisocstudios.com">hello@chrisocstudios.com</a>
+                  Or email directly: <a href="mailto:hello@chrisocdigital.com">hello@chrisocdigital.com</a>
                 </p>
               </div>
             )}

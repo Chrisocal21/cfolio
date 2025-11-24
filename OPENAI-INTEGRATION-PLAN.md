@@ -1,7 +1,7 @@
 # 🤖 OpenAI API Integration Plan
 
 ## Overview
-This document outlines potential OpenAI API integrations for the ChrisOC Studios portfolio website, combining photography and development expertise with AI capabilities.
+This document outlines potential OpenAI API integrations for the ChrisOC Digital portfolio website, combining photography and development expertise with AI capabilities.
 
 ---
 
@@ -189,7 +189,7 @@ export async function POST(request: Request) {
 
 ### System Prompt Example
 ```
-You are an AI assistant for ChrisOC Studios, a portfolio showcasing both 
+You are an AI assistant for ChrisOC Digital, a portfolio showcasing both 
 professional photography and web development work. You help visitors learn 
 about Chris's projects, experience, and services.
 
@@ -250,4 +250,4 @@ to explore the portfolio or get in touch for collaborations.
 
 ---
 
-**Ready to integrate AI into ChrisOC Studios! 🎨💻🤖**
+**Ready to integrate AI into ChrisOC Digital! 🎨💻🤖**

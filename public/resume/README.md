@@ -15,7 +15,7 @@ You can:
 Make sure to include:
 - Contact information (email, phone, location)
 - Professional summary
-- Work experience (ChrisOC Studios, Swanky Badger, previous roles)
+- Work experience (ChrisOC Digital, Swanky Badger, previous roles)
 - Skills (Photography, Web Development, Operations)
 - Education (Palomar College, MiraCosta College)
 - Projects (ChrisOCPhoto, CookbookVerse, GetEditly)

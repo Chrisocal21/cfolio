@@ -9,22 +9,22 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'ChrisOC Studios | Photography & Development',
+  title: 'ChrisOC Digital | Photography & Development',
   description: 'A modern portfolio showcasing photography and tech projects. Built with Next.js, TypeScript, and React.',
   keywords: ['portfolio', 'photography', 'web development', 'next.js', 'react', 'typescript'],
-  authors: [{ name: 'ChrisOC Studios' }],
-  creator: 'ChrisOC Studios',
-  publisher: 'ChrisOC Studios',
+  authors: [{ name: 'ChrisOC Digital' }],
+  creator: 'ChrisOC Digital',
+  publisher: 'ChrisOC Digital',
   openGraph: {
-    title: 'ChrisOC Studios | Photography & Development',
+    title: 'ChrisOC Digital | Photography & Development',
     description: 'A modern portfolio showcasing photography and tech projects.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'ChrisOC Studios',
+    siteName: 'ChrisOC Digital',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ChrisOC Studios | Photography & Development',
+    title: 'ChrisOC Digital | Photography & Development',
     description: 'A modern portfolio showcasing photography and tech projects.',
     creator: '@yourusername',
   },

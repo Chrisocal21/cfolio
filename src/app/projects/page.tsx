@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Navigation from '@/components/Navigation'
@@ -16,6 +19,8 @@ export default function ProjectsPage() {
 }
 
 function ProjectsContent() {
+  const [selectedFilter, setSelectedFilter] = useState('all')
+
   const projects = [
     {
       id: 1,
@@ -23,11 +28,11 @@ function ProjectsContent() {
       category: 'Photography Portfolio',
       description: 'Professional photography portfolio showcasing creative work with elegant galleries and client booking system.',
       tech: ['WordPress', 'Custom Theme', 'Gallery Plugin'],
-      url: 'https://www.chrisocphoto.com',
-      link: 'https://www.chrisocphoto.com',
+      url: 'https://chrisocphoto.vercel.app',
+      link: 'https://chrisocphoto.vercel.app',
       github: 'https://github.com/Chrisocal21/chrisocphoto',
       date: '2024',
-      screenshot: '/screenshots/chrisocphoto.png'
+      screenshot: '/screenshots/chrisocphoto sc.jpg'
     },
     {
       id: 2,
@@ -39,21 +44,134 @@ function ProjectsContent() {
       link: 'https://www.cookbookverse.com',
       github: 'https://github.com/Chrisocal21/cookbookverse',
       date: '2024',
-      screenshot: '/screenshots/cookbookverse.png'
+      screenshot: '/screenshots/cookbookverse sc.jpg'
     },
     {
       id: 3,
       title: 'GetEditly',
-      category: 'SaaS Platform',
-      description: 'Web-based editing tool with collaborative features and real-time updates for content creators.',
-      tech: ['Next.js', 'TypeScript', 'WebSockets'],
+      category: 'Photo Editor',
+      description: 'All-in-one photo editor with smart AI enhancements that scans the internet for similar photos to provide the best auto-editing experience.',
+      tech: ['Next.js', 'TypeScript', 'AI/ML', 'Image Processing', 'Web Scraping'],
       url: 'https://www.geteditly.com',
       link: 'https://www.geteditly.com',
       github: 'https://github.com/Chrisocal21/geteditly',
       date: '2023 - Present',
-      screenshot: '/screenshots/geteditly.png'
+      screenshot: '/screenshots/geteditly sc.jpg'
+    },
+    {
+      id: 4,
+      title: 'URBNWX',
+      category: 'Weather App',
+      description: 'Real-time weather application providing accurate forecasts and conditions with a clean, user-friendly interface.',
+      tech: ['React', 'Weather API', 'Geolocation'],
+      url: 'https://emergency-urbn.vercel.app',
+      link: 'https://emergency-urbn.vercel.app',
+      github: 'https://github.com/Chrisocal21/urbnwx',
+      date: '2024',
+      screenshot: '/screenshots/URBN SC.jpg'
+    },
+    {
+      id: 5,
+      title: 'PlanAI',
+      category: 'AI Assistant',
+      description: 'AI-powered planning assistant that helps organize tasks, schedules, and projects with intelligent recommendations.',
+      tech: ['Next.js', 'OpenAI', 'TypeScript'],
+      url: 'https://plan-ai-livid.vercel.app',
+      link: 'https://plan-ai-livid.vercel.app',
+      github: 'https://github.com/Chrisocal21/planai',
+      date: '2024',
+      screenshot: '/screenshots/planai sc.jpg'
+    },
+    {
+      id: 6,
+      title: 'UltimateNotes',
+      category: 'Productivity App',
+      description: 'All-in-one digital journal and tablet companion for everyday tasks and special occasions, perfect for work organization and life planning.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Cloud Sync', 'Touch UI'],
+      url: 'https://www.ultimatenotes.com',
+      link: 'https://www.ultimatenotes.com',
+      github: 'https://github.com/Chrisocal21/ultimatenotes',
+      date: '2024',
+      screenshot: '/screenshots/ultimatenotes sc.jpg'
+    },
+    {
+      id: 7,
+      title: 'DevPadAI',
+      category: 'Developer Tool',
+      description: 'AI-enhanced code editor and development environment with intelligent code completion and debugging assistance.',
+      tech: ['Next.js', 'OpenAI', 'Monaco Editor'],
+      url: 'https://www.devpadai.com',
+      link: 'https://www.devpadai.com',
+      github: 'https://github.com/Chrisocal21/devpadai',
+      date: '2024',
+      screenshot: '/screenshots/devpadai sc.jpg'
+    },
+    {
+      id: 8,
+      title: 'Munch',
+      category: 'E-Commerce',
+      description: 'Modern healthy snack company website featuring curated snack selections, subscription boxes, and nutritional information.',
+      tech: ['React', 'Node.js', 'Stripe', 'E-Commerce', 'Subscription'],
+      url: 'https://www.munch.com',
+      link: 'https://www.munch.com',
+      github: 'https://github.com/Chrisocal21/munch',
+      date: '2024',
+      screenshot: '/screenshots/munch sc.jpg'
+    },
+    {
+      id: 9,
+      title: 'ProdRdy',
+      category: 'Productivity Tool',
+      description: 'Production readiness checklist and workflow management tool for development teams and product launches.',
+      tech: ['Next.js', 'TypeScript', 'PostgreSQL'],
+      url: 'https://www.prodrdy.com',
+      link: 'https://www.prodrdy.com',
+      github: 'https://github.com/Chrisocal21/prodrdy',
+      date: '2024',
+      screenshot: '/screenshots/prodrdy sc.jpg'
+    },
+    {
+      id: 10,
+      title: 'Beechin Pizza Co',
+      category: 'Restaurant Website',
+      description: 'Fictional classic pizza place showcasing traditional menu design with authentic pizzeria aesthetics and customer-friendly layout.',
+      tech: ['WordPress', 'Custom Theme', 'Responsive Design', 'Menu System'],
+      url: 'https://www.beechinpizzaco.com',
+      link: 'https://www.beechinpizzaco.com',
+      github: 'https://github.com/Chrisocal21/beechinpizzaco',
+      date: '2023',
+      screenshot: '/screenshots/beechinpizzaco sc.jpg'
+    },
+    {
+      id: 11,
+      title: 'South O Block Party',
+      category: 'Event Website',
+      description: 'Community block party website for Oceanside, CA featuring event details, vendor information, and local community engagement.',
+      tech: ['WordPress', 'Custom Theme', 'Event Management', 'Local SEO'],
+      url: 'https://www.southobp.com',
+      link: 'https://www.southobp.com',
+      github: 'https://github.com/Chrisocal21/southobp',
+      date: '2023',
+      screenshot: '/screenshots/southobp sc.jpg'
     }
   ]
+
+  const categories = [
+    { id: 'all', label: 'All Projects' },
+    { id: 'AI', label: 'AI' },
+    { id: 'E-Commerce', label: 'E-Commerce' },
+    { id: 'Photography', label: 'Photography' },
+    { id: 'Productivity', label: 'Productivity' },
+    { id: 'Web App', label: 'Web Apps' },
+    { id: 'WordPress', label: 'WordPress' }
+  ]
+
+  const filteredProjects = selectedFilter === 'all' 
+    ? projects 
+    : projects.filter(project => 
+        project.category.includes(selectedFilter) || 
+        project.tech.some(tech => tech.includes(selectedFilter))
+      )
 
   return (
     <div className={styles.page}>
@@ -63,19 +181,50 @@ function ProjectsContent() {
           <p>Building digital experiences with modern web technologies</p>
         </div>
 
+        <div className={styles.filterBar}>
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              className={`${styles.filterButton} ${selectedFilter === category.id ? styles.active : ''}`}
+              onClick={() => setSelectedFilter(category.id)}
+            >
+              {category.label}
+              <span className={styles.filterCount}>
+                {category.id === 'all' 
+                  ? projects.length 
+                  : projects.filter(p => 
+                      p.category.includes(category.id) || 
+                      p.tech.some(t => t.includes(category.id))
+                    ).length
+                }
+              </span>
+            </button>
+          ))}
+        </div>
+
         <div className={styles.projectsGrid}>
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <div key={project.id} className={styles.projectCard}>
               <Link href={project.link} target="_blank" rel="noopener noreferrer" className={styles.projectImageLink}>
                 <div className={styles.projectImage}>
                   <div className={styles.screenshotContainer}>
-                    <div className={styles.placeholderFallback}>
-                      <span className={styles.projectIcon}>
-                        {project.category.includes('Photo') ? '📷' : project.category.includes('Recipe') ? '🍳' : '✏️'}
-                      </span>
-                      <p className={styles.projectTitle}>{project.title}</p>
-                      <p className={styles.projectUrl}>{project.url.replace('https://www.', '')}</p>
-                    </div>
+                    {project.screenshot ? (
+                      <Image
+                        src={project.screenshot}
+                        alt={`${project.title} screenshot`}
+                        fill
+                        className={styles.screenshot}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className={styles.placeholderFallback}>
+                        <span className={styles.projectIcon}>
+                          {project.category.includes('Photo') ? '📷' : project.category.includes('Recipe') ? '🍳' : '✏️'}
+                        </span>
+                        <p className={styles.projectTitle}>{project.title}</p>
+                        <p className={styles.projectUrl}>{project.url.replace('https://', '').replace('www.', '')}</p>
+                      </div>
+                    )}
                   </div>
                   <div className={styles.imageOverlay}>
                     <span className={styles.viewButton}>View Live Site →</span>

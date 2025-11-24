@@ -9,7 +9,7 @@ export default function Hero() {
           <span className={styles.welcomeText}>Welcome to</span>
           <span className={styles.brandLine}>
             <span className={styles.heroIcon}>◢</span>
-            <span className={styles.brandName}>ChrisOC</span> <span className={styles.brandStudios}>Studios</span>
+            <span className={styles.brandName}>ChrisOC</span> <span className={styles.brandStudios}>Digital</span>
           </span>
         </h1>
         <p className={styles.subtitle}>

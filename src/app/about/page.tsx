@@ -17,34 +17,86 @@ export default function AboutPage() {
         <div className={styles.content}>
           <div className={styles.bioSection}>
             <h2>My Story</h2>
+            <div className={styles.bioIntro}>
+              <p>
+                I&apos;m Chris O&apos;Connell, founder of <strong>ChrisOC Digital</strong>—a creative 
+                studio specializing in professional photography and modern web development. What began in 2007 
+                as <strong>ChrisOCPhoto</strong>, a photography business focused on event coverage and portraits, 
+                has evolved into a full-service creative studio that bridges visual storytelling with digital 
+                innovation, helping clients bring their vision to life through compelling imagery and 
+                cutting-edge web solutions.
+              </p>
+            </div>
+            <details className={styles.storyDetails}>
+              <summary className={styles.storySummary}>Read Full Story</summary>
+              <div className={styles.storyContent}>
             <p>
-              I&apos;m Chris O&apos;Connell, founder of <strong>ChrisOC Studios</strong>—a creative 
-              studio specializing in professional photography and modern web development. Since 2007, 
-              I&apos;ve built a multifaceted business that bridges visual storytelling with digital innovation, 
-              helping clients bring their vision to life through compelling imagery and cutting-edge web solutions.
+              Today, <strong>ChrisOC Digital</strong> encompasses two core divisions: <strong>ChrisOCPhoto</strong>, 
+              my established photography brand offering event coverage, professional portraits, and corporate media 
+              content creation; and my web development practice, where I build responsive, user-friendly websites 
+              and applications using modern frameworks like Next.js, React, and TypeScript. ChrisOCPhoto remains 
+              an active part of the business, continuing to serve clients with the same dedication to quality 
+              that defined its founding. Whether you need stunning visuals for your brand or a custom web platform 
+              to showcase your work, ChrisOC Digital delivers end-to-end creative solutions.
             </p>
             <p>
-              <strong>ChrisOC Studios</strong> encompasses two core services: <strong>ChrisOCPhoto</strong>, 
-              my photography division offering event coverage, professional portraits, and media content creation; 
-              and my web development practice, where I build responsive, user-friendly websites and applications 
-              using modern frameworks like Next.js, React, and TypeScript. Whether you need stunning visuals 
-              for your brand or a custom web platform to showcase your work, ChrisOC Studios delivers 
-              end-to-end creative solutions.
+              My journey began with managing photography operations across U.S. military bases in 
+              Japan and South Korea, where I led teams and built strong client relationships in diverse, 
+              challenging environments. This foundation in visual storytelling would later merge with an 
+              unexpected passion for technology that emerged during the 2020 pandemic.
             </p>
             <p>
-              My journey has taken me from managing photography operations across U.S. military bases in 
-              Japan and South Korea, to leading production teams at Ballast Point Brewing Company and 
-              educating customers as a Certified GoPro Educator at REI. This diverse background in operations 
-              management, customer service, and creative work gives me a unique perspective—I understand both 
-              the technical execution and the business strategy needed to deliver results.
+              While unemployed during the pandemic, I discovered a fascination with automation and code. 
+              What started as automating social media posts and Discord channel content quickly evolved 
+              into learning basic programming, then diving deeper into how AI could assist in sectioning 
+              and understanding code. I taught myself Visual Studio Code, explored its rich history and 
+              ecosystem, and began building real applications. This self-directed learning journey transformed 
+              into a full web development practice, with projects ranging from AI-powered planning assistants 
+              (PlanAI) and photo editors (GetEditly) to weather apps (URBNWX) and productivity tools (UltimateNotes).
             </p>
             <p>
-              Based in Oceanside, California, I currently work in production management at Swanky Badger 
-              while growing ChrisOC Studios. I thrive in fast-paced environments where attention to detail, 
-              strategic planning, and creative problem-solving intersect. Whether I&apos;m capturing the 
-              perfect shot, crafting elegant code, or collaborating with clients to bring their ideas to life, 
-              I bring the same commitment to excellence and passion for continuous learning.
+              Today, my portfolio includes active projects, contracted client work, and experimental builds—each 
+              one pushing my skills further. I specialize in Next.js and React applications with AI integrations, 
+              creating tools that solve real problems. Some projects are live and serving users, others are 
+              shelved but taught valuable lessons, and many are actively under development. This combination 
+              of photography expertise and self-taught development skills gives me a unique perspective on 
+              creating comprehensive digital solutions.
             </p>
+            <p>
+              Based in Oceanside, California, I thrive in fast-paced creative environments where attention 
+              to detail, strategic planning, and innovative problem-solving intersect. Whether I&apos;m 
+              capturing the perfect shot, crafting elegant code, or collaborating with clients to bring 
+              their vision to life, I bring the same commitment to excellence and passion for continuous 
+              learning to every project.
+            </p>
+              </div>
+            </details>
+          </div>
+
+          <div className={styles.featuredProjects}>
+            <h2>Featured Projects</h2>
+            <div className={styles.featuredGrid}>
+              <a href="https://chrisocphoto.vercel.app" target="_blank" rel="noopener noreferrer" className={styles.featuredCard}>
+                <div className={styles.featuredCardImage}>
+                  <img src="/screenshots/chrisocphoto sc.jpg" alt="ChrisOCPhoto" />
+                </div>
+                <div className={styles.featuredCardContent}>
+                  <h3>ChrisOCPhoto</h3>
+                  <p className={styles.featuredCategory}>Photography Portfolio</p>
+                  <p>Professional photography portfolio with elegant galleries and client booking system. Where it all began in 2007.</p>
+                </div>
+              </a>
+              <a href="https://www.cookbookverse.com" target="_blank" rel="noopener noreferrer" className={styles.featuredCard}>
+                <div className={styles.featuredCardImage}>
+                  <img src="/screenshots/cookbookverse sc.jpg" alt="CookbookVerse" />
+                </div>
+                <div className={styles.featuredCardContent}>
+                  <h3>CookbookVerse</h3>
+                  <p className={styles.featuredCategory}>Recipe Platform</p>
+                  <p>Digital cookbook platform for discovering, saving, and sharing recipes with an intuitive user experience.</p>
+                </div>
+              </a>
+            </div>
           </div>
 
           <div className={styles.skillsSection}>
@@ -55,38 +107,39 @@ export default function AboutPage() {
                 <ul>
                   <li>Event Photography</li>
                   <li>Professional Media Content Creation</li>
+                  <li>Corporate Photography & Portraits</li>
                   <li>Canon DSLR & GoPro</li>
-                  <li>Adobe Photoshop & Illustrator</li>
+                  <li>Adobe Photoshop</li>
+                  <li>Adobe Lightroom</li>
+                  <li>Adobe Illustrator</li>
                   <li>Adobe Premiere (Video Editing)</li>
-                  <li>Certified GoPro Educator</li>
                   <li>Photo Editing & Retouching</li>
-                  <li>Client Relations & Project Coordination</li>
                 </ul>
               </div>
               <div className={styles.skillCategory}>
                 <h3>💻 Web Development</h3>
                 <ul>
-                  <li>HTML & Next.js</li>
-                  <li>C# & Java</li>
+                  <li>Next.js & React Applications</li>
                   <li>TypeScript & JavaScript</li>
-                  <li>WordPress, Wix, Squarespace</li>
+                  <li>AI Integration (OpenAI API)</li>
+                  <li>Visual Studio Code</li>
+                  <li>Automation & Scripting</li>
+                  <li>API Development</li>
                   <li>Responsive Design</li>
-                  <li>Microsoft Dynamics AX</li>
-                  <li>E-Commerce Platforms</li>
-                  <li>Web Content Management</li>
+                  <li>WordPress & E-Commerce</li>
                 </ul>
               </div>
               <div className={styles.skillCategory}>
-                <h3>🏭 Operations & Management</h3>
+                <h3>🎯 Business & Client Relations</h3>
                 <ul>
-                  <li>Production Planning & Management</li>
-                  <li>Team Leadership & Development</li>
-                  <li>Inventory Management</li>
-                  <li>Safety & Compliance</li>
-                  <li>Warehouse Logistics</li>
-                  <li>Customer Service Excellence</li>
-                  <li>E-Commerce & Client Relations</li>
+                  <li>Project Management</li>
+                  <li>Team Leadership & Collaboration</li>
+                  <li>Client Relations & Communication</li>
                   <li>Strategic Planning</li>
+                  <li>E-Commerce Solutions</li>
+                  <li>Brand Development</li>
+                  <li>Customer Service Excellence</li>
+                  <li>Creative Problem-Solving</li>
                 </ul>
               </div>
             </div>
@@ -96,51 +149,19 @@ export default function AboutPage() {
             <h2>Experience</h2>
             <div className={styles.timeline}>
               <div className={styles.timelineItem}>
-                <div className={styles.timelineDate}>Oct 2024 - Present</div>
-                <div className={styles.timelineContent}>
-                  <h4>Production, Warehouse, Travel Rep</h4>
-                  <p className={styles.company}>Swanky Badger, Vista, CA</p>
-                  <p>Oversee end-to-end production processes ensuring efficiency and quality standards. Operate precision engraving machinery for custom products. Manage comprehensive warehouse logistics including inventory control, shipping, and receiving operations. Travel to conventions, trade shows, and corporate events as onsite staff representative. Certified forklift operator maintaining strict safety protocols and OSHA compliance across all warehouse operations.</p>
-                </div>
-              </div>
-              <div className={styles.timelineItem}>
                 <div className={styles.timelineDate}>Dec 2007 - Present</div>
                 <div className={styles.timelineContent}>
                   <h4>Founder & Creative Director</h4>
-                  <p className={styles.company}>ChrisOC Studios, Oceanside, CA</p>
-                  <p>Full-service creative studio offering professional photography (ChrisOCPhoto) and modern web development. Specializing in event photography, media content creation, and building responsive web applications with Next.js and React. Manage all business operations, client relations, project coordination, and strategic planning.</p>
-                </div>
-              </div>
-              <div className={styles.timelineItem}>
-                <div className={styles.timelineDate}>Mar 2021 - Oct 2024</div>
-                <div className={styles.timelineContent}>
-                  <h4>Construction Assistant</h4>
-                  <p className={styles.company}>Bittner Enterprise, San Diego, CA</p>
-                  <p>Assisted in diverse demolition, repair, and construction projects across residential and commercial sites. Coordinated with contractors and project managers to ensure timelines were met while maintaining strict adherence to safety standards and building codes. Handled material logistics, site preparation, and quality control checks. Developed problem-solving skills working on varied construction challenges from structural repairs to complete renovations.</p>
-                </div>
-              </div>
-              <div className={styles.timelineItem}>
-                <div className={styles.timelineDate}>Sep 2015 - Oct 2020</div>
-                <div className={styles.timelineContent}>
-                  <h4>Production Manager</h4>
-                  <p className={styles.company}>Ballast Point Brewing Company, San Diego, CA</p>
-                  <p>Led and developed high-performing production teams in fast-paced brewery environment. Supervised daily operations including brewing, packaging, and quality control processes. Trained new staff on production protocols, safety procedures, and quality standards. Collaborated with cross-functional teams across operations, quality assurance, and logistics to resolve operational challenges. Utilized Microsoft Dynamics AX enterprise system for managing production orders, inventory tracking, and supply chain coordination. Ensured adherence to FDA regulations and company quality standards while optimizing production efficiency.</p>
-                </div>
-              </div>
-              <div className={styles.timelineItem}>
-                <div className={styles.timelineDate}>Oct 2012 - Mar 2016</div>
-                <div className={styles.timelineContent}>
-                  <h4>Customer Service Representative</h4>
-                  <p className={styles.company}>Recreational Equipment Inc. (REI), San Diego, CA</p>
-                  <p>Delivered exceptional customer service in high-volume retail environment both in-store and via phone support. Served as Certified GoPro Educator, providing expert product knowledge, technical demonstrations, and creative guidance to customers on action cameras and accessories. Educated customers on outdoor gear, photography equipment, and adventure technology. Built strong customer relationships through personalized recommendations and technical expertise. Consistently exceeded sales targets while maintaining focus on customer satisfaction and education.</p>
+                  <p className={styles.company}>ChrisOC Digital (formerly ChrisOCPhoto), Oceanside, CA</p>
+                  <p>Founded as ChrisOCPhoto in 2007, evolved into ChrisOC Digital—a full-service creative studio. ChrisOCPhoto remains an active division offering professional photography services including event coverage, corporate media content, and professional portraits. Expanded to include modern web development specializing in responsive applications with Next.js, React, and TypeScript. Manage all business operations, client relations, project coordination, and strategic planning. Deliver end-to-end creative solutions from concept to execution across both photography and digital development.</p>
                 </div>
               </div>
               <div className={styles.timelineItem}>
                 <div className={styles.timelineDate}>Sep 2008 - Oct 2011</div>
                 <div className={styles.timelineContent}>
                   <h4>Head Destination Photographer</h4>
-                  <p className={styles.company}>Campus Photography International, San Diego, CA</p>
-                  <p>Led comprehensive photography operations across multiple U.S. military bases throughout Japan and South Korea. Supervised and mentored team of professional photographers, coordinating schedules, quality standards, and client deliverables. Managed all aspects of client relations from initial consultations through final product delivery. Handled logistics for international travel, equipment management, and on-location shoots. Built strong relationships with military personnel and families while navigating cultural nuances and diverse shooting environments. Consistently delivered high-quality portrait and event photography under tight deadlines in challenging conditions.</p>
+                  <p className={styles.company}>Campus Photography International, Japan & South Korea</p>
+                  <p>Led comprehensive photography operations across multiple U.S. military bases throughout Japan and South Korea. Supervised and mentored team of professional photographers, coordinating schedules, quality standards, and client deliverables. Managed all aspects of client relations from initial consultations through final product delivery. Built strong relationships with military personnel and families while navigating cultural nuances and diverse shooting environments. Consistently delivered high-quality portrait and event photography under tight deadlines.</p>
                 </div>
               </div>
             </div>

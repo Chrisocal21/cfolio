@@ -81,7 +81,7 @@ export default function ChatWidget() {
       setApiConnected(false)
       setMessages([...newMessages, {
         role: 'assistant',
-        content: 'Sorry, I encountered an error. Please try again or contact Chris directly at hello@chrisocstudios.com.'
+        content: 'Sorry, I encountered an error. Please try again or contact Chris directly at hello@chrisocdigital.com.'
       }])
     } finally {
       setIsLoading(false)
@@ -136,7 +136,7 @@ export default function ChatWidget() {
             <div className={styles.headerInfo}>
               <div className={styles.avatar}>🤖</div>
               <div>
-                <h3>ChrisOC Studios AI</h3>
+                <h3>ChrisOC Digital AI</h3>
                 <p className={styles.status}>
                   <span className={styles.statusDot} />
                   Online

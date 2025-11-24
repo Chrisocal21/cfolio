@@ -11,7 +11,7 @@
 
 .pageHeader {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .pageHeader h1 {
@@ -23,6 +23,53 @@
 .pageHeader p {
   font-size: 1.25rem;
   color: var(--text-light);
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.filterButton {
+  padding: 0.625rem 1.25rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filterButton:hover {
+  border-color: var(--primary-color);
+  background: var(--bg-secondary);
+}
+
+.filterButton.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.filterCount {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.filterButton.active .filterCount {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .projectsGrid {
@@ -71,6 +118,11 @@
 .screenshot {
   object-fit: cover;
   object-position: top;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .screenshot {
+  transform: scale(1.05);
 }
 
 .placeholderFallback {
@@ -280,6 +332,15 @@
 
   .pageHeader h1 {
     font-size: 2.25rem;
+  }
+
+  .filterBar {
+    gap: 0.5rem;
+  }
+
+  .filterButton {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
   }
 
   .projectsGrid {

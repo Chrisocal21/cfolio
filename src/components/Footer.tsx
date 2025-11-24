@@ -30,7 +30,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
-        <p>&copy; {currentYear} ChrisOC Studios. All rights reserved.</p>
+        <p>&copy; {currentYear} ChrisOC Digital. All rights reserved.</p>
         <button
           onClick={toggleTheme}
           className={styles.themeToggle}

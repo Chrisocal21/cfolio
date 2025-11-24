@@ -1,4 +1,4 @@
-# AI Accuracy Guidelines for ChrisOC Studios Portfolio
+# AI Accuracy Guidelines for ChrisOC Digital Portfolio
 
 ## Critical Importance
 The AI features on this portfolio directly represent Chris O'Connell's professional reputation. **Inaccurate information damages credibility and can mislead potential clients.** All AI system prompts must be verified against the About page before deployment.

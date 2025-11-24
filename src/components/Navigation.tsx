@@ -12,7 +12,7 @@ export default function Navigation() {
       <Link href="/" className={styles.logo}>
         <span className={styles.logoIcon}>◢</span>
         <span className={styles.logoText}>ChrisOC</span>
-        <span className={styles.logoStudio}>Studios</span>
+        <span className={styles.logoStudio}>Digital</span>
       </Link>
       
       <button 
@@ -27,6 +27,9 @@ export default function Navigation() {
       </button>
 
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ''}`}>
+        <li>
+          <Link href="/featured" onClick={() => setIsMenuOpen(false)}>Featured</Link>
+        </li>
         <li>
           <Link href="/photography" onClick={() => setIsMenuOpen(false)}>Photography</Link>
         </li>

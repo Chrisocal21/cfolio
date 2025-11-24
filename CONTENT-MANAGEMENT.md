@@ -1,7 +1,7 @@
 # 📅 Content Management Plan
 
 ## Overview
-This document outlines the strategy for keeping the ChrisOC Studios portfolio fresh, relevant, and up-to-date.
+This document outlines the strategy for keeping the ChrisOC Digital portfolio fresh, relevant, and up-to-date.
 
 ---
 

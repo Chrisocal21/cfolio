@@ -72,11 +72,122 @@
 .description {
   font-size: 1.125rem;
   color: var(--text-light);
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   line-height: 1.8;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.featuredSection {
+  background: var(--bg-color);
+  padding: 4rem 2rem;
+  margin-top: -2rem;
+}
+
+.featuredContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.featuredLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.featuredCard {
+  display: block;
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.featuredCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.15);
+  border-color: var(--primary-color);
+}
+
+.featuredImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.photoIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.photoPlaceholder p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.featuredOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.featuredCard:hover .featuredOverlay {
+  opacity: 1;
+}
+
+.featuredIcon {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.featuredInfo {
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--bg-secondary);
+}
+
+.featuredInfo h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.featuredInfo p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin: 0;
 }
 
 .ctaGrid {
@@ -166,6 +277,18 @@
   }
 
   .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .featuredSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .featuredContainer {
+    max-width: 100%;
+  }
+
+  .featuredInfo h3 {
     font-size: 1.25rem;
   }
 }

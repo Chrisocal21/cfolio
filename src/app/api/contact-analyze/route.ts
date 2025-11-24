@@ -7,9 +7,9 @@ function getOpenAIClient() {
   })
 }
 
-const ANALYSIS_PROMPT = `You are an AI assistant analyzing contact form inquiries for ChrisOC Studios. 
+const ANALYSIS_PROMPT = `You are an AI assistant analyzing contact form inquiries for ChrisOC Digital. 
 
-ChrisOC Studios Services:
+ChrisOC Digital Services:
 - Photography: Event photography, corporate media content, portrait photography (ChrisOCPhoto division)
 - Web Development: Next.js/React applications, responsive websites, TypeScript projects
 - NOT offered: Drone/aerial photography, wedding photography, real estate photography, product photography, video production
@@ -111,7 +111,7 @@ Message: ${message}
     const analysis: AnalysisResult = JSON.parse(completion.choices[0].message.content || '{}')
 
     // Generate a quick auto-reply suggestion
-    const replyPrompt = `Based on this analysis, write a brief, professional auto-reply message (2-3 sentences) acknowledging the inquiry and setting expectations. Mention relevant services from ChrisOC Studios.
+    const replyPrompt = `Based on this analysis, write a brief, professional auto-reply message (2-3 sentences) acknowledging the inquiry and setting expectations. Mention relevant services from ChrisOC Digital.
 
 Analysis: ${JSON.stringify(analysis)}
 Context: ${inquiryContext}`
@@ -119,7 +119,7 @@ Context: ${inquiryContext}`
     const replyCompletion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [
-        { role: 'system', content: 'You are writing professional, friendly auto-reply emails for ChrisOC Studios.' },
+        { role: 'system', content: 'You are writing professional, friendly auto-reply emails for ChrisOC Digital.' },
         { role: 'user', content: replyPrompt }
       ],
       temperature: 0.7,
