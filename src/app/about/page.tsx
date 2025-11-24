@@ -1,4 +1,5 @@
 import Navigation from '@/components/Navigation'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import Footer from '@/components/Footer'
 import styles from './about.module.css'
 
@@ -156,6 +157,26 @@ export default function AboutPage() {
                 <h4>MiraCosta College</h4>
                 <p>Studies in Media Arts & Technologies, E-Commerce Business</p>
               </div>
+            </div>
+          </div>
+
+          <div className={styles.resumeSection}>
+            <h2>Let&apos;s Connect</h2>
+            <p>Interested in working together? Download my resume or get in touch to discuss your project.</p>
+            <div className={styles.resumeActions}>
+              <a 
+                href="/resume/Chris-OConnell-Resume.pdf" 
+                download
+                className={styles.downloadButton}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                Download Resume
+              </a>
+              <a href="/contact" className={styles.contactButton}>
+                Contact Me
+              </a>
             </div>
           </div>
         </div>

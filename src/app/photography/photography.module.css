@@ -25,6 +25,63 @@
   color: var(--text-light);
 }
 
+/* Filter Bar */
+.filterBar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: 2rem;
+  color: var(--text-color);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterButton:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.filterButton.active {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border-color: transparent;
+}
+
+.filterIcon {
+  font-size: 1.125rem;
+}
+
+.filterCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.375rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.filterButton.active .filterCount {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -247,6 +304,24 @@
 }
 
 @media (max-width: 768px) {
+  .filterBar {
+    gap: 0.5rem;
+  }
+
+  .filterButton {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .filterIcon {
+    font-size: 1rem;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
   .lightbox {
     padding: 1rem;
   }

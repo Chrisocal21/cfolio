@@ -14,8 +14,8 @@
 - [x] Enable navigation between images (arrows/swipe) in lightbox ✅
 
 ### Organization
-- [ ] Create categories/albums (portraits, landscapes, etc.)
-- [ ] Add clear labels or filters for categories
+- [x] Create categories/albums (portraits, landscapes, etc.) ✅ (Landscape, Events, Portraits)
+- [x] Add clear labels or filters for categories ✅ (Filter bar with counts)
 - [x] Include brief titles or descriptions for each photo ✅ (Detailed alt text, titles, and expanded lightbox captions)
 - [x] Ensure intuitive menu/thumbnail navigation ✅ (Grid layout with hover previews and lazy loading)
 
@@ -149,11 +149,11 @@
 - [x] Ensure design reflects your personality ✅ (ChrisOC Studios brand)
 
 ### Media Quality
-- [ ] Use high-resolution images (optimized)
+- [x] Use high-resolution images (optimized) ✅
 - [ ] Create custom graphics or icons for projects
-- [ ] Ensure all photos are crisp and well-composed
-- [ ] Avoid blurry or low-quality visuals
-- [ ] Optimize file sizes for fast loading
+- [x] Ensure all photos are crisp and well-composed ✅
+- [x] Avoid blurry or low-quality visuals ✅
+- [x] Optimize file sizes for fast loading ✅
 
 ### Layout & Spacing
 - [x] Embrace whitespace (don't overcrowd) ✅
@@ -194,7 +194,7 @@
 ## 🔄 Maintenance & Updates
 
 ### Content Management
-- [ ] Plan regular portfolio updates
+- [x] Plan regular portfolio updates ✅ (See CONTENT-MANAGEMENT.md)
 - [ ] Add new projects as completed
 - [ ] Refresh photography gallery periodically
 - [ ] Archive or remove outdated work
@@ -210,7 +210,7 @@
 ### Optional Additions
 - [ ] Consider adding a blog or updates section
 - [ ] Add testimonials or client reviews
-- [ ] Include resume/CV download
+- [x] Include resume/CV download ✅ (Download button on About page)
 - [ ] Show awards or certifications
 - [ ] Display GitHub contribution graph
 

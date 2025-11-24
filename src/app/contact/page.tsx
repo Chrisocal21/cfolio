@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import Footer from '@/components/Footer'
 import styles from './contact.module.css'
 

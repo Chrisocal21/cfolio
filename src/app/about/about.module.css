@@ -35,7 +35,8 @@
 .bioSection,
 .skillsSection,
 .experienceSection,
-.educationSection {
+.educationSection,
+.resumeSection {
   background: var(--bg-color);
   padding: 3rem;
   border-radius: 1rem;
@@ -45,7 +46,8 @@
 .bioSection h2,
 .skillsSection h2,
 .experienceSection h2,
-.educationSection h2 {
+.educationSection h2,
+.resumeSection h2 {
   font-size: 2rem;
   color: var(--text-color);
   margin-bottom: 1.5rem;
@@ -174,6 +176,67 @@
   margin: 0;
 }
 
+/* Resume Section */
+.resumeSection {
+  text-align: center;
+}
+
+.resumeSection p {
+  font-size: 1.0625rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.resumeActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.downloadButton,
+.contactButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.downloadButton {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+}
+
+.downloadButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+}
+
+.downloadButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contactButton {
+  background: var(--bg-secondary);
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+}
+
+.contactButton:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .page {
     padding: 2rem 1.5rem;
@@ -198,5 +261,19 @@
   .timelineItem {
     grid-template-columns: 1fr;
     gap: 0.5rem;
+  }
+
+  .resumeSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .resumeActions {
+    flex-direction: column;
+  }
+
+  .downloadButton,
+  .contactButton {
+    width: 100%;
+    justify-content: center;
   }
 }

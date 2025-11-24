@@ -4,9 +4,13 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Navigation from '@/components/Navigation'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import Footer from '@/components/Footer'
 import styles from './photography.module.css'
 
+// To categorize photos, add category property to each photo object
+// Available categories: 'landscape', 'event', 'portrait', 'blackwhite', 'nature', 'sports'
+// Example: { src: '...', alt: '...', title: '...', category: 'landscape' }
 const photos = [
   { src: '/photography/Yosemite falls.jpg', alt: 'Majestic Yosemite Falls cascading down granite cliffs in Yosemite National Park', title: 'Yosemite Falls' },
   { src: '/photography/Death Valley 060.jpg', alt: 'Golden hour light illuminating the dramatic sand dunes and mountains of Death Valley', title: 'Death Valley Dunes' },
@@ -28,12 +32,30 @@ const photos = [
   { src: '/photography/11349189_192521327747333_1881580269_n.jpg', alt: 'Professional photography showcasing creative vision and technical skill', title: 'Creative Vision' },
 ]
 
+const categories = [
+  { id: 'all', label: 'All Photos' },
+  { id: 'landscape', label: 'Landscape' },
+  { id: 'event', label: 'Events' },
+  { id: 'portrait', label: 'Portraits' },
+  { id: 'blackwhite', label: 'Black & White' },
+  { id: 'nature', label: 'Nature' },
+  { id: 'sports', label: 'Sports' },
+]
+
 export default function PhotographyPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [activeCategory, setActiveCategory] = useState('all')
+
+  const filteredPhotos = activeCategory === 'all' 
+    ? photos 
+    : photos.filter(photo => (photo as any).category === activeCategory)
 
   const openLightbox = (index: number) => {
-    setCurrentIndex(index)
+    // Find the actual index in the full photos array
+    const photo = filteredPhotos[index]
+    const actualIndex = photos.findIndex(p => p.src === photo.src)
+    setCurrentIndex(actualIndex)
     setLightboxOpen(true)
   }
 
@@ -57,9 +79,26 @@ export default function PhotographyPage() {
           <h1>📷 Photography</h1>
           <p>Capturing moments and telling stories through images</p>
         </div>
+
+        <div className={styles.filterBar}>
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              className={`${styles.filterButton} ${activeCategory === category.id ? styles.active : ''}`}
+              onClick={() => setActiveCategory(category.id)}
+            >
+              {category.label}
+              <span className={styles.filterCount}>
+                {category.id === 'all' 
+                  ? photos.length 
+                  : photos.filter(p => (p as any).category === category.id).length}
+              </span>
+            </button>
+          ))}
+        </div>
         
         <div className={styles.galleryGrid}>
-          {photos.map((photo, index) => (
+          {filteredPhotos.map((photo, index) => (
             <div 
               key={index} 
               className={styles.photoCard}
