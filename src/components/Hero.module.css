@@ -27,8 +27,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   display: block;
-  align-self: flex-start;
-  padding-left: 3rem;
+  align-self: center;
 }
 
 .brandLine {
