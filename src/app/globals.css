@@ -7,6 +7,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
 }
 
 :root {
@@ -36,6 +39,8 @@ body {
   background-color: var(--bg-color);
   transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
   overflow-x: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 /* Smooth page transitions */
