@@ -300,7 +300,7 @@ All AI features include robust error handling:
 - "OpenAI API key not configured"
 - "API quota exceeded"
 - "Failed to process request"
-- Fallback to direct contact: "Contact Chris directly at hello@chrisocdigital.com"
+- Fallback to direct contact: "Contact Chris directly at chrisocdigital@gmail.com"
 
 ---
 
@@ -422,7 +422,7 @@ Before deploying to production:
 
 ---
 
-**Need Help?** Contact Chris at hello@chrisocdigital.com
+**Need Help?** Contact Chris at chrisocdigital@gmail.com
 
 **Version:** 1.0.0  
 **Last Updated:** November 2024  

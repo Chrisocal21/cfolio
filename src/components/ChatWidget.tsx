@@ -81,7 +81,7 @@ export default function ChatWidget() {
       setApiConnected(false)
       setMessages([...newMessages, {
         role: 'assistant',
-        content: 'Sorry, I encountered an error. Please try again or contact Chris directly at hello@chrisocdigital.com.'
+        content: 'Sorry, I encountered an error. Please try again or contact Chris directly at chrisocdigital@gmail.com.'
       }])
     } finally {
       setIsLoading(false)

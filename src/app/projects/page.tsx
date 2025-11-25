@@ -177,7 +177,7 @@ function ProjectsContent() {
     <div className={styles.page}>
       <div className={styles.container}>
         <div className={styles.pageHeader}>
-          <h1>💻 Development Projects</h1>
+          <h1><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="32" height="32" style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '0.5rem'}}><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Development Projects</h1>
           <p>Building digital experiences with modern web technologies</p>
         </div>
 
@@ -219,7 +219,22 @@ function ProjectsContent() {
                     ) : (
                       <div className={styles.placeholderFallback}>
                         <span className={styles.projectIcon}>
-                          {project.category.includes('Photo') ? '📷' : project.category.includes('Recipe') ? '🍳' : '✏️'}
+                          {project.category.includes('Photo') ? (
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="48" height="48">
+                              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                              <circle cx="12" cy="13" r="4"/>
+                            </svg>
+                          ) : project.category.includes('Recipe') ? (
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="48" height="48">
+                              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            </svg>
+                          ) : (
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="48" height="48">
+                              <polyline points="16 18 22 12 16 6"/>
+                              <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                          )}
                         </span>
                         <p className={styles.projectTitle}>{project.title}</p>
                         <p className={styles.projectUrl}>{project.url.replace('https://', '').replace('www.', '')}</p>

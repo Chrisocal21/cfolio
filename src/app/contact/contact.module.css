@@ -52,9 +52,18 @@
   border-color: var(--primary-color);
 }
 
+.infoCard:hover .icon {
+  color: var(--secondary-color);
+}
+
 .icon {
   font-size: 3rem;
   margin-bottom: 1rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
 }
 
 .infoCard h3 {

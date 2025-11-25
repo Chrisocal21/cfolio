@@ -28,13 +28,13 @@ export default function Navigation() {
 
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ''}`}>
         <li>
-          <Link href="/featured" onClick={() => setIsMenuOpen(false)}>Featured</Link>
-        </li>
-        <li>
           <Link href="/photography" onClick={() => setIsMenuOpen(false)}>Photography</Link>
         </li>
         <li>
           <Link href="/projects" onClick={() => setIsMenuOpen(false)}>Projects</Link>
+        </li>
+        <li>
+          <Link href="/updates" onClick={() => setIsMenuOpen(false)}>Updates</Link>
         </li>
         <li>
           <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>

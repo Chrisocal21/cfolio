@@ -113,8 +113,19 @@ export default function ContactPage() {
               <span className={styles.statusText}>{availabilityStatus.statusText}</span>
             </div>
             <div className={styles.availabilityDetails}>
-              <span>⚡ {availabilityStatus.nextAvailable}</span>
-              <span>📬 Response: {availabilityStatus.responseTime}</span>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16" style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '0.25rem'}}>
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+                {availabilityStatus.nextAvailable}
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16" style={{display: 'inline-block', verticalAlign: 'middle', marginRight: '0.25rem'}}>
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                Response: {availabilityStatus.responseTime}
+              </span>
             </div>
           </div>
         </div>
@@ -125,9 +136,14 @@ export default function ContactPage() {
               className={styles.infoCard}
               onClick={() => setActiveModal('email')}
             >
-              <div className={styles.icon} role="img" aria-label="Email icon">📧</div>
+              <div className={styles.icon} role="img" aria-label="Email icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="48" height="48">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
               <h3>Email</h3>
-              <p className={styles.infoLink}>hello@chrisocdigital.com</p>
+              <p className={styles.infoLink}>chrisocdigital@gmail.com</p>
               <span className={styles.clickHint}>Click to send inquiry</span>
             </button>
 
@@ -135,7 +151,12 @@ export default function ContactPage() {
               className={styles.infoCard}
               onClick={() => setActiveModal('location')}
             >
-              <div className={styles.icon} role="img" aria-label="Location icon">📍</div>
+              <div className={styles.icon} role="img" aria-label="Location icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="48" height="48">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
               <h3>Location</h3>
               <p className={styles.infoLink}>Oceanside, CA</p>
               <span className={styles.clickHint}>Click for details</span>
@@ -145,7 +166,14 @@ export default function ContactPage() {
               className={styles.infoCard}
               onClick={() => setActiveModal('availability')}
             >
-              <div className={styles.icon}>💼</div>
+              <div className={styles.icon}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="48" height="48">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
               <h3>Availability</h3>
               <p className={styles.infoLink}>View Schedule</p>
               <span className={styles.clickHint}>Click to check availability</span>
@@ -421,7 +449,7 @@ export default function ContactPage() {
                   </button>
                 </form>
                 <p className={styles.directEmail}>
-                  Or email directly: <a href="mailto:hello@chrisocdigital.com">hello@chrisocdigital.com</a>
+                  Or email directly: <a href="mailto:chrisocdigital@gmail.com">chrisocdigital@gmail.com</a>
                 </p>
               </div>
             )}
