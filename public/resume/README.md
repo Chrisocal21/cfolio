@@ -14,7 +14,7 @@ Based on About page and MY-STORY.md:
 - Photographer & Developer
 - Oceanside, CA
 - chrisocdigital@gmail.com
-- chrisocphoto.com | cookbookverse.com | geteditly.com
+- chrisocphoto.vercel.app | cookbookverse.com | geteditly.com
 - GitHub: @Chrisocal21
 - Instagram: @chrisocphoto, @cookbookverse
 

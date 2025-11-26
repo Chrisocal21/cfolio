@@ -3,7 +3,7 @@
 Add screenshot images for your projects here.
 
 ## Required Screenshots:
-- `chrisocphoto.png` - Screenshot of www.chrisocphoto.com
+- `chrisocphoto.png` - Screenshot of chrisocphoto.vercel.app
 - `cookbookverse.png` - Screenshot of www.cookbookverse.com
 - `geteditly.png` - Screenshot of www.geteditly.com
 

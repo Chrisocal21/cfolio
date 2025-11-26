@@ -244,7 +244,7 @@ export default function ContactPage() {
             </p>
             <div className={styles.socialLinks}>
               <Link 
-                href="https://www.chrisocphoto.com" 
+                href="https://chrisocphoto.vercel.app" 
                 className={styles.socialLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -257,7 +257,7 @@ export default function ContactPage() {
                 </span>
                 <div>
                   <h4>ChrisOC Photography</h4>
-                  <p>chrisocphoto.com</p>
+                  <p>chrisocphoto.vercel.app</p>
                 </div>
               </Link>
               <Link 

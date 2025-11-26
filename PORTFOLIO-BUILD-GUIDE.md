@@ -128,7 +128,7 @@
 - [x] Include email or contact form ✅ (email: chrisocdigital@gmail.com)
 - [x] Link GitHub profile ✅ (@Chrisocal21)
 - [x] Link Instagram accounts ✅ (@chrisocphoto, @cookbookverse)
-- [x] Add website links ✅ (chrisocphoto.com, cookbookverse.com, geteditly.com)
+- [x] Add website links ✅ (chrisocphoto.vercel.app, cookbookverse.com, geteditly.com)
 - [x] Add real social media icons ✅ (SVG icons)
 - [x] Consider "Hire Me" CTA button ✅ (CTA buttons on hero)
 
